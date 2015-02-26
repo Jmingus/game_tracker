@@ -43,7 +43,7 @@ group :development, :test do
   gem 'spring'
 end
 
-
+gem 'lodash-rails'
 gem 'hirb'
 gem 'kaminari'
 gem 'puma'
