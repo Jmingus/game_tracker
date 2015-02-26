@@ -52,6 +52,11 @@ gem 'figaro'
 gem 'devise'
 gem 'paperclip', '~> 4.2'
 gem 'aws-sdk', '< 2.0'
+source 'https://rails-assets.org' do
+  gem 'rails-assets-angular'
+  gem 'rails-assets-angular-ui-router'
+end
+
 group :test, :development do
   gem 'faker'
   gem 'quiet_assets'
@@ -60,4 +65,5 @@ group :test, :development do
   gem 'simplecov'
   gem 'better_errors'
   gem 'binding_of_caller'
+
 end
