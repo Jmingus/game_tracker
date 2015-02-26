@@ -15,5 +15,5 @@
 //= require angular
 //= require angular-ui-router
 //= require turbolinks
-//=require lodash
+//= require lodash
 //= require_tree .
