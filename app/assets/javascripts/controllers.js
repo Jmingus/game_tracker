@@ -5,7 +5,6 @@ angular.module('app.controllers', [])
 	var gameCollection = [];
 	$scope.displayList = [];
 	$scope.searchParam = '';
-	$scope.n = 1;
 
 	$scope.searchSubmit=function(searchParam){
 		console.log("click");
@@ -13,10 +12,16 @@ angular.module('app.controllers', [])
 		//$http.get('http://www.boardgamegeek.com/xmlapi/search?search='+searchParam)
 			.success(function(response) {
 				console.log(parser.xml_str2json(response));
-				//for (var i=0; i<response.length; i++)
-				// gameCollection = [];
-				// gameCollection = response.xml_str2json;
-				// $scope.displayList = gameCollection;
+				 gameCollection = parser.xml_str2json(response);
+				 gameCollection = gameCollection.boardgames.boardgame;
+				 if(!gameCollection) {
+				 	gameCollection = [];
+				 }
+				 if(!_.isArray(gameCollection)) {
+				 	gameCollection = [gameCollection];
+				 } 
+				 console.log(gameCollection);
+				 $scope.displayList = gameCollection;
 			})
 			.error(function(err) {
 				console.log(err);
