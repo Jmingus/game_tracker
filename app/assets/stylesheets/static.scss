@@ -1,12 +1,30 @@
 // Place all the styles related to the static controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+html {
+    background-color: #A9D8C8;
+}
 .mainnav {
     text-align:center;
+    a{
+        color: #423446;
+        text-decoration: none;
+    }
+    .signout {
+        float:right;
+    }
 }
+
 h4 {
     display:inline-block;
 }
 h1 {
     text-align: center;
+    color: #CF6B57;
+}
+form {
+    text-align: center;
+}
+table {
+    margin: 0 auto;
 }
