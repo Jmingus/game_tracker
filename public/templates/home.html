@@ -5,13 +5,14 @@
 
 <table>
 	<thead>
-		<th> Game Name </th>
-		<th> Publish Year </th>
+		<th ng-click="nameClick('toString() || _.text')"> Game Name </th>
+		<th ng-click="yearClick('yearpublished')"> Year Published </th>
+		<th class="add-game-icon"> Add Game To My Vault </th>
 	</thead>
 	<tbody>
-		<tr ng-repeat="game in displayList">
+		<tr ng-class="selected" ng-repeat="game in displayList">
 			<td> {{ game.name.toString() || game.name._text }} </td>
-			<td> {{ game.yearpublished }}	</td>
-			<td> <input type="checkbox"> </td>
+			<td class="year-published"> {{ game.yearpublished }}	</td>
+			<td> <i class="fa fa-plus"></i> </td>
 	</tbody>
 </table>
