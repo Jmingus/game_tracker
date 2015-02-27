@@ -2,3 +2,16 @@
     <input ng-model="searchParam" type="text" placeholder="enter text here">
     <button>Submit</button>
 </form>
+
+<table>
+	<thead>
+		<th> Game Name </th>
+		<th> Publish Year </th>
+	</thead>
+	<tbody>
+		<tr ng-repeat="game in displayList">
+			<td> Game {{ n+1 }}	</td>
+			<td> Year 2000	</td>
+			<td> <input type="checkbox"> </td>
+	</tbody>
+</table>
