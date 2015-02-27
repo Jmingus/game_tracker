@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require angular
+//= require angular-xml
 //= require angular-ui-router
 //= require turbolinks
 //= require lodash
