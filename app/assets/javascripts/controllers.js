@@ -2,7 +2,6 @@ angular.module('app.controllers', [])
 .controller('homeCtrl', function($scope, $http) {
 
 	var gameCollection = [];
-	$scope.
 
 	$http.get('http://www.boardgamegeek.com/xmlapi/search?search=$scope.gameSearcg&exact=1')
 		.success(function(response) {
@@ -16,5 +15,4 @@ angular.module('app.controllers', [])
 		.error(function(err) {
 			console.log(err);
 		});
-
 });
