@@ -55,6 +55,7 @@ gem 'aws-sdk', '< 2.0'
 source 'https://rails-assets.org' do
   gem 'rails-assets-angular'
   gem 'rails-assets-angular-ui-router'
+  gem 'rails-assets-angular-xml'
 end
 
 group :test, :development do
