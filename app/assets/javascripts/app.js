@@ -1,10 +1,10 @@
 angular.module('app', ['app.controllers', 'ui.router'])
 .config(function($stateProvider, $urlRoutProvider) {
 	$stateProvider
-	.state ('menu' , {
-		url: '/menu',
+	.state ('home' , {
+		url: '/home',
 		templateUrl: 'templates/menu.url',
-		controller: 'menuCtrl'
+		controller: 'homeCtrl'
 	})
 	.state('profile', {
 		url: '/profile',
@@ -26,6 +26,6 @@ angular.module('app', ['app.controllers', 'ui.router'])
 		templateUrl: 'templates/gamerBuddies.url',
 		controller: ''
 	});
-	//$urlRouterProvider.otherwise('/menu');
+	//$urlRouterProvider.otherwise('/home');
 });
 
