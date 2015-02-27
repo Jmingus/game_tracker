@@ -10,8 +10,8 @@
 	</thead>
 	<tbody>
 		<tr ng-repeat="game in displayList">
-			<td> Game {{ n+1 }}	</td>
-			<td> Year 2000	</td>
+			<td> {{ game.name.toString() || game.name._text }} </td>
+			<td> {{ game.yearpublished }}	</td>
 			<td> <input type="checkbox"> </td>
 	</tbody>
 </table>
