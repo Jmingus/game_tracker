@@ -3,7 +3,7 @@
 <h1>[REDACTED]</h1>
 
 
-----------
+
 ##Contributors.##
 
 > **Jacob Burkhart** - Lead Designer
@@ -11,7 +11,7 @@
 > **Jacob Mingus**- Lead Ruby on Rails Developer
 
 
-----------
+
 
 
 ## What is [REDACTED]? ##
