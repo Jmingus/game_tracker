@@ -23,9 +23,29 @@ form {
     text-align: center;
 }
 table {
-    margin: 0 auto;
+    margin: 15px auto;
+    width: 50%;
 }
-
+thead {
+    color:#CF6B57;
+    width: 50%;
+}
+tbody {
+    color:#423446;
+    width: 50%;
+    text-align:left;
+}
 .year-published {
     text-align:center;
+}
+.add-game-icon {
+    text-align:center;
+}
+
+/* BOARDGAME.HTML STLYING! */
+.gameInfoBox {
+    width: 700px;
+    height:500px;
+    border: 2px solid #423446;
+    margin: 0 auto;
 }
