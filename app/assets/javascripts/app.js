@@ -1,5 +1,5 @@
 angular.module('app', ['app.controllers', 'ui.router'])
-.config(function($stateProvider, $urlRoutProvider, $locationProvider) {
+.config(function($stateProvider, $urlRouteProvider, $locationProvider) {
 	$stateProvider
 	.state ('home' , {
 		url: '/home',
