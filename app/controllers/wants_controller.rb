@@ -2,7 +2,7 @@ class WantsController < ApplicationController
   before_action :set_want, only: [:destroy]
 
   def create
-    @want = Want.create( want_params )
+    @want = Want.create(want_params)
     if @want.save
       redirect_to root_path, flash: { notice: 'Wishlist Item Saved'}
     else
