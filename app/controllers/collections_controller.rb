@@ -1,5 +1,6 @@
 class CollectionsController < ApplicationController
   before_action :set_collection, only: [:destroy]
+  
   def create
     @collection = Collection.create( collection_params )
     if @collection.save
