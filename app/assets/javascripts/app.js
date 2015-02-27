@@ -1,8 +1,8 @@
 angular.module('app', ['app.controllers', 'ui.router'])
-.config(function($stateProvider, $urlRouteProvider, $locationProvider) {
+.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
 	$stateProvider
 	.state ('home' , {
-		url: '/home',
+		url: '/',
 		templateUrl: 'templates/home.url',
 		controller: 'homeCtrl'
 	})
@@ -26,5 +26,5 @@ angular.module('app', ['app.controllers', 'ui.router'])
 		templateUrl: 'templates/gamerBuddies.url',
 		controller: ''
 	});
-	$urlRouterProvider.otherwise('/home');
+	$urlRouterProvider.otherwise('/');
 });
