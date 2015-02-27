@@ -10,11 +10,11 @@ html {
         color: #423446;
         text-decoration: none;
     }
-    .signout {
-        float:right;
-    }
 }
-
+.signout {
+    float:right;
+    display:block;
+}
 h4 {
     display:inline-block;
 }
@@ -27,4 +27,8 @@ form {
 }
 table {
     margin: 0 auto;
+}
+
+.year-published {
+    text-align:center;
 }
