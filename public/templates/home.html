@@ -5,8 +5,9 @@
 
 <table>
 	<thead>
-		<th> Game Name </th>
-		<th> Year Published </th>
+		<th ng-click="nameClick('toString() || _.text')"> Game Name </th>
+		<th ng-click="yearClick('yearpublished')"> Year Published </th>
+		<th class="add-game-icon"> Add Game To My Vault </th>
 	</thead>
 	<tbody>
 		<tr ng-class="selected" ng-repeat="game in displayList">

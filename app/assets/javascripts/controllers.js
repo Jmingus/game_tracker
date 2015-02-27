@@ -34,4 +34,16 @@ angular.module('app.controllers', [])
 		$scope.userGameCollection.push()
 	}
 
+	$scope.$watch('searchParam', function() {
+		if($scope.filterBy === '') {
+			$scope.displayList = _.filter($scope.gameCollection, function(element) {
+			return element.name.toString().indexOf($scope.searchParam) >= 0;  
+		});
+		}
+		else {
+			$scope.displayList = _.filter($scope.gameCollection, function(element) {
+				return element.name.toString().indexOf($scope.searchParam) >= 0;  
+			});
+		}
+	});
 });
