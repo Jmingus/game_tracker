@@ -10,11 +10,8 @@ angular.module('app.controllers', [])
 	$scope.x = 0;
 
 	$scope.searchSubmit=function(searchParam){
-		console.log("click");
-		//$http.get('http://www.boardgamegeek.com/xmlapi/search?search='+searchParam+'&exact=1')
 		$http.get('http://www.boardgamegeek.com/xmlapi/search?search='+searchParam)
 			.success(function(response) {
-				console.log(parser.xml_str2json(response));
 				 gameCollection = parser.xml_str2json(response);
 				 gameCollection = gameCollection.boardgames.boardgame;
 				 if(!gameCollection) {
@@ -31,11 +28,41 @@ angular.module('app.controllers', [])
 			});
 		};
 
-	$scope.addItemToCollection = function(x) {
-		$scope.userGameCollection.push(gameCollection[x])
-		console.log('click');
-		console.log($scope.userGameCollection);
-	}
+	$scope.addItemToCollection = function(gameId) {
+		console.log('add item clicked');
+		console.log(gameId);
+		$http.get('http://www.boardgamegeek.com/xmlapi/boardgame/'+gameId)
+		//$http.get('http://www.boardgamegeek.com/xmlapi/search?search='+gameId+'&exact=1')
+			.success(function(response) {
+				console.log(response);
+				 $scope.userGameCollection = parser.xml_str2json(response);
+				 $scope.userGameCollection = $scope.userGameCollection.boardgames.boardgame;
+				 if(!$scope.userGameCollection) {
+				 	$scope.userGameCollection = [];
+				 }
+				 if(!_.isArray($scope.userGameCollection)) {
+				 	$scope.userGameCollection = [$scope.userGameCollection];
+				 } 
+				 console.log($scope.gameCollection);
+			})
+			.error(function(err) {
+				console.log(err);
+			});
+		};
+
+		// $http.post(
+		// 		'',
+		// 		{
+		// 			board_name:
+		// 			min_player:
+		// 			max_player:
+		// 			playtime:
+		// 			published:
+		// 			board_image:
+		// 		}
+		// 	);
+
+	// };
 
 	$scope.$watch('searchParam', function() {
 		if($scope.filterBy === '') {
