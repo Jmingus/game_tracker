@@ -6,6 +6,7 @@ angular.module('app.controllers', [])
 	$scope.displayList = [];
 	$scope.searchParam = '';
 	$scope.checkBox = false;
+	$scope.userGameCollection = [];
 
 	$scope.searchSubmit=function(searchParam){
 		console.log("click");
@@ -30,7 +31,7 @@ angular.module('app.controllers', [])
 		};
 
 	$scope.addGameClick = function() {
-		
+		$scope.userGameCollection.push()
 	}
 
 });
