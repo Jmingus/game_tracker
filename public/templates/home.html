@@ -5,14 +5,14 @@
 
 <table>
 	<thead>
-		<th ng-click="nameClick('toString() || _.text')"> Game Name </th>
+		<th ng-click="nameClick('toString() || _.text')"> Game </th>
 		<th ng-click="yearClick('yearpublished')"> Year Published </th>
-		<th class="add-game-icon"> Add Game To My Vault </th>
+		<th class="add-game-icon"> Add To Vault </th>
 	</thead>
 	<tbody>
 		<tr ng-class="selected" ng-repeat="game in displayList">
 			<td> {{ game.name.toString() || game.name._text }} </td>
 			<td class="year-published"> {{ game.yearpublished }}	</td>
-			<td> <i class="fa fa-plus"></i> </td>
+			<td> <i ng-click="addItemToCollection(x+1)" class="fa fa-plus"></i> </td>
 	</tbody>
 </table>

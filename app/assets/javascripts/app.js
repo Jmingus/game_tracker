@@ -25,6 +25,11 @@ angular.module('app', ['app.controllers', 'ui.router'])
 		url: '/gamerBuddies',
 		templateUrl: 'templates/gamerBuddies.html',
 		controller: ''
+	})
+	.state('addGame', {
+		url: '/addGame',
+		templateUrl: 'templates/addGame.html',
+		controller: ''
 	});
 	$urlRouterProvider.otherwise('/');
 });
