@@ -7,11 +7,10 @@
 ##Contributors.##
 
 > **Jacob Burkhart** - Lead Designer
+
 > **Travis Czerw** - Lead Front-end Javascripter
+
 > **Jacob Mingus**- Lead Ruby on Rails Developer
-
-
-
 
 
 ## What is [REDACTED]? ##
