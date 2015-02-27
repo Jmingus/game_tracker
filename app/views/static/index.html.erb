@@ -1,13 +1,13 @@
 <nav class="mainnav">
-    <a href="#home">Home</a> |
-    <a href="#profile">Vault</a> |
+    <a href="#home">Vault</a> |
     <a href="#quickPlay">Quick Play</a> |
     <a href="#gamerBuddies">Buddies</a> |
-		<%= link_to 'Sign-Out', destroy_user_session_path, method: :delete %>
+    <%= link_to 'Sign-Out', destroy_user_session_path, method: :delete, class: 'signout' %>
+
 </nav>
 
-<h1>Board Games </h1>
 
+<h1>Board Games </h1>
 
 <body ng-app="app" ng-controller="homeCtrl">
 
