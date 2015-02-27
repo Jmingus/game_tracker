@@ -4,7 +4,7 @@ angular.module('app', ['app.controllers', 'ui.router'])
 	.state ('menu' , {
 		url: '/menu',
 		templateUrl: 'templates/menu.url',
-		controller: ''
+		controller: 'menuCtrl'
 	})
 	.state('profile', {
 		url: '/profile',
