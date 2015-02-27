@@ -11,23 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150227004315) do
+ActiveRecord::Schema.define(version: 20150227152204) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "collections", force: :cascade do |t|
-    t.boolean  "favorite",     default: false
-    t.string   "board_name",                   null: false
-    t.integer  "min_player",   default: 1,     null: false
-    t.integer  "max_player",                   null: false
-    t.integer  "playtime",                     null: false
-    t.date     "published",                    null: false
-    t.boolean  "up_for_trade", default: false
+    t.boolean  "favorite",                 default: false
+    t.string   "board_name",                               null: false
+    t.integer  "min_player",               default: 1,     null: false
+    t.integer  "max_player",                               null: false
+    t.integer  "playtime",                                 null: false
+    t.date     "published",                                null: false
+    t.boolean  "up_for_trade",             default: false
     t.string   "comment"
     t.integer  "user_id"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+    t.string   "board_image_file_name"
+    t.string   "board_image_content_type"
+    t.integer  "board_image_file_size"
+    t.datetime "board_image_updated_at"
   end
 
   add_index "collections", ["user_id"], name: "index_collections_on_user_id", using: :btree
@@ -55,16 +59,20 @@ ActiveRecord::Schema.define(version: 20150227004315) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "wants", force: :cascade do |t|
-    t.boolean  "favorite",   default: false
-    t.string   "board_name",                 null: false
-    t.integer  "min_player", default: 1,     null: false
-    t.integer  "max_player",                 null: false
-    t.integer  "playtime",                   null: false
-    t.date     "published",                  null: false
+    t.boolean  "favorite",                 default: false
+    t.string   "board_name",                               null: false
+    t.integer  "min_player",               default: 1,     null: false
+    t.integer  "max_player",                               null: false
+    t.integer  "playtime",                                 null: false
+    t.date     "published",                                null: false
     t.string   "comment"
     t.integer  "user_id"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+    t.string   "board_image_file_name"
+    t.string   "board_image_content_type"
+    t.integer  "board_image_file_size"
+    t.datetime "board_image_updated_at"
   end
 
   add_index "wants", ["user_id"], name: "index_wants_on_user_id", using: :btree

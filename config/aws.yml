@@ -1,11 +1,11 @@
   development:
-    access_key_id: Figaro.env.aws_key
-    secret_access_key: Figaro.env.aws_secret
+    access_key_id: Figaro.env.AWS_ACCESS_KEY_ID
+    secret_access_key: Figaro.env.AWS_SECRET_ACCESS_KEY
 
   production:
-    access_key_id: Figaro.env.aws_key
-    secret_access_key: Figaro.env.aws_secret
+    access_key_id: Figaro.env.AWS_ACCESS_KEY_ID
+    secret_access_key: Figaro.env.AWS_SECRET_ACCESS_KEY
 
   test:
-    access_key_id: Figaro.env.aws_key
-    secret_access_key: Figaro.env.aws_secret
+    access_key_id: Figaro.env.AWS_ACCESS_KEY_ID
+    secret_access_key: Figaro.env.AWS_SECRET_ACCESS_KEY
