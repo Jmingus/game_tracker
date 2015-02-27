@@ -2,7 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 html {
-    background-color: #A9D8C8;
+    background-color: #DDE8E0;
+    font-family: Raleway;
 }
 .mainnav {
     text-align:center;
@@ -12,6 +13,7 @@ html {
     }
 }
 
+/* ADDGAME.HTML STYLING*/
 h4 {
     display:inline-block;
 }
@@ -21,6 +23,26 @@ h1 {
 }
 form {
     text-align: center;
+}
+/* input[type=search] {
+color: #423446;
+cursor: pointer;
+width: 20%;
+letter-spacing: 4px;
+word-spacing: 20px;
+font-size:20px;
+} */
+.container-1 input#search{
+  width: 250px;
+  height: 40px;
+  background: #DDE8E0;
+  border: 1px solid #423446 ;
+  font-size: 12pt;
+  color: #423446;
+  padding-left: 45px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
 }
 table {
     margin: 15px auto;
@@ -34,6 +56,9 @@ tbody {
     color:#423446;
     width: 50%;
     text-align:left;
+    td:nth-child(3) {
+        text-align:center;
+    }
 }
 .year-published {
     text-align:center;
@@ -41,6 +66,7 @@ tbody {
 .add-game-icon {
     text-align:center;
 }
+
 
 /* BOARDGAME.HTML STLYING! */
 .gameInfoBox {

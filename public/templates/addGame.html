@@ -1,13 +1,19 @@
+<h1>Add A Game</h1>
 <form ng-submit="searchSubmit(searchParam)">
-    <input ng-model="searchParam" type="text" placeholder="enter game">
-    <button>Search</button>
+    <!-- <input ng-model="searchParam" type="search" name="s" results=5 placeholder="enter game"> -->
+    <div class="box">
+          <div class="container-1">
+              <span class="icon"><i class="fa fa-search"></i></span>
+             <input ng-model="searchParam" type="search" id="search" results=5 placeholder="Search for a game..." />
+          </div>
+    </div>
 </form>
 
 <table>
 	<thead>
 		<th ng-click="nameClick('toString() || _.text')"> Game Name </th>
 		<th ng-click="yearClick('yearpublished')"> Year Published </th>
-		<th class="add-game-icon"> Add Game To My Vault </th>
+		<th class="add-game-icon"> Add To Vault </th>
 	</thead>
 	<tbody>
 		<tr ng-class="selected" ng-repeat="game in displayList">
