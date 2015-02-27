@@ -7,6 +7,7 @@ angular.module('app.controllers', [])
 	$scope.searchParam = '';
 	$scope.checkBox = false;
 	$scope.userGameCollection = [];
+	$scope.x = 0;
 
 	$scope.searchSubmit=function(searchParam){
 		console.log("click");
@@ -30,8 +31,10 @@ angular.module('app.controllers', [])
 			});
 		};
 
-	$scope.addGameClick = function() {
-		$scope.userGameCollection.push()
+	$scope.addItemToCollection = function(x) {
+		$scope.userGameCollection.push(gameCollection[x])
+		console.log('click');
+		console.log($scope.userGameCollection);
 	}
 
 	$scope.$watch('searchParam', function() {
