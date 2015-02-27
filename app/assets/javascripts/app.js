@@ -29,7 +29,7 @@ angular.module('app', ['app.controllers', 'ui.router'])
 	.state('addGame', {
 		url: '/addGame',
 		templateUrl: 'templates/addGame.html',
-		controller: ''
+		controller: 'homeCtrl'
 	});
 	$urlRouterProvider.otherwise('/');
 });
