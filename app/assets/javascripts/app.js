@@ -3,27 +3,27 @@ angular.module('app', ['app.controllers', 'ui.router'])
 	$stateProvider
 	.state ('home' , {
 		url: '/',
-		templateUrl: 'templates/home.url',
+		templateUrl: 'templates/home.html',
 		controller: 'homeCtrl'
 	})
 	.state('profile', {
 		url: '/profile',
-		templateUrl: 'templates/profile.url',
+		templateUrl: 'templates/profile.html',
 		controller: ''
 	})
 	.state('boardGame', {
 		url: '/boardGame',
-		templateUrl: 'templates/boardGame.url',
+		templateUrl: 'templates/boardGame.html',
 		controller: ''
 	})
 	.state('quickPlay', {
 		url: '/quickPlay',
-		templateUrl: 'templates/quickPlay.url',
+		templateUrl: 'templates/quickPlay.html',
 		controller: ''
 	})
 	.state('gamerBudies', {
 		url: '/gamerBuddies',
-		templateUrl: 'templates/gamerBuddies.url',
+		templateUrl: 'templates/gamerBuddies.html',
 		controller: ''
 	});
 	$urlRouterProvider.otherwise('/');
