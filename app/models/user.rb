@@ -6,4 +6,5 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :user_name
   validates_presence_of :user_name, :email, :city, :zipcode
   has_many :collections
+  has_many :wants
 end
