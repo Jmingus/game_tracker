@@ -6,17 +6,17 @@ class CollectionsController < ApplicationController
     @collection = @user.collections.create(collection_params)
     @collection.user_id = current_user.id
     if @collection.save
-      redirect_to root_path, flash: { notice: 'Collection Item Saved'}
+      render json: @collection.to_json, notice: 'Collection Item Saved'
     else
-      redirect_to root_path, flash: { notice: 'Collection Item has errors when creating, please inform Jacob'}
+      render json: @collection.to_json, notice: 'Errors are afoot in the create method'
     end
   end
 
   def destroy
     if @collection.destroy
-      redirect_to root_path, flash: { notice: 'Collection Item Destroyed'}
+      render json: @collection.to_json, notice: 'Collection Item Destroy'
     else
-      redirect_to root_path, flash: { notice: 'Collection Item has errors when destroying, please inform Jacob'}
+      render json: @collection.to_json, notice: 'Errors are afoot in the destroy method'
     end
   end
 
