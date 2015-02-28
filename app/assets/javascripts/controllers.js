@@ -74,7 +74,7 @@ angular.module('app.controllers', [])
 				} 
 				console.log($scope.userGameCollection);
 
-			$http.post('/users/'+userId+'/collections',
+			$http.post('/users/'+userId+'/testers',
 			{
 				board_name: $scope.userGameCollection[0].name.toString() || $scope.userGameCollection[0].name._text,
 				min_player: $scope.userGameCollection[0].minplayers,
