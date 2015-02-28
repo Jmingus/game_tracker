@@ -1,6 +1,5 @@
 <h1> Vault </h1>
 
-<ul ng-repeat="game in storedUserGameList">
-	<li> {{ game.board_name }} {{ game.min_player }} {{ game.max_player }} {{ game.playtime }} </li>
- 	<div class="game-image">  </div>
-</ul>
+<span ng-repeat="game in storedUserGameList">
+ 	<span> <img src="{{game.board_image}}"> </span>
+</span>
