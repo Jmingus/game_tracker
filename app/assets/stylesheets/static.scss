@@ -1,3 +1,58 @@
+/* $gut: 1.754%;
+$col: 6.725%;
+
+@mixin grid($colnum) {
+  width: ($col * $colnum) + ($gut * (($colnum) - 1));
+  margin-right: $gut;
+  margin-bottom: $gut;
+  float: left;
+}
+
+section {
+  max-width: 1140px;
+  div {
+    padding: 0.5em;
+    box-sizing: border-box;
+  }
+  div:last-child {
+    margin-right: 0;
+  }
+}
+
+.col8, .col2, .col6, .col7, .col3, .col4 {
+  width: 100%;
+  margin-bottom: $gut;
+}
+
+@media screen and (min-width:500px) {
+  .col8 {
+  @include grid(8);
+}
+
+.col4 {
+  @include grid(4);
+}
+
+.col6 {
+  @include grid(6);
+}
+
+.col2 {
+  @include grid(2);
+}
+
+.col3 {
+  @include grid(3);
+}
+
+.col7 {
+  @include grid(7);
+}
+} */
+
+
+
+
 // Place all the styles related to the static controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
@@ -113,4 +168,96 @@ tbody {
 
 .deviseinfo{
     text-align:center;
+}
+
+
+/* QUICKPLAY.HTML STYLING
+ */
+ .bubble {
+ position: relative;
+ width: 35%;
+ height: 3em;
+ padding: 0px;
+ background: #CF6B57;
+ -webkit-border-radius: 13px;
+ -moz-border-radius: 13px;
+ border-radius: 13px;
+ border: #423446 solid 3px;
+ margin: 2em auto;
+ }
+
+ .bubble:after {
+ content: '';
+ position: absolute;
+ border-style: solid;
+ border-width: 15px 15px 0;
+ border-color: #CF6B57 transparent;
+ display: block;
+ width: 0;
+ z-index: 1;
+ margin-left: -15px;
+ bottom: -15px;
+ left: 15%;
+ }
+
+ .bubble:before {
+ content: '';
+ position: absolute;
+ border-style: solid;
+ border-width: 17px 17px 0;
+ border-color: #423446 transparent;
+ display: block;
+ width: 0;
+ z-index: 0;
+ margin-left: -17px;
+ bottom: -20px;
+ left: 15%;
+ }
+
+ .bubble2 {
+position: relative;
+width: 35%;
+height: 3em;
+padding: 0px;
+background: #CF6B57;
+-webkit-border-radius: 13px;
+-moz-border-radius: 13px;
+border-radius: 13px;
+border: #423446 solid 3px;
+margin: 2em auto;
+}
+
+.bubble2:after {
+content: '';
+position: absolute;
+border-style: solid;
+border-width: 0 15px 15px;
+border-color: #CF6B57 transparent;
+display: block;
+width: 0;
+z-index: 1;
+margin-left: -15px;
+top: -15px;
+left: 85%;
+}
+
+.bubble2:before {
+content: '';
+position: absolute;
+border-style: solid;
+border-width: 0 17px 17px;
+border-color: #423446 transparent;
+display: block;
+width: 0;
+z-index: 0;
+margin-left: -17px;
+top: -20px;
+left: 85%;
+}
+ button {
+    text-align: center;
+ }
+ .quickplaylist {
+    text-align: center;
+    list-style-type: none;
 }
