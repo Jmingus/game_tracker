@@ -93,7 +93,7 @@ angular.module('app.controllers', [])
 				max_player: $scope.userGameCollection[0].maxplayers,
 				playtime: $scope.userGameCollection[0].playingtime,
 				published: $scope.userGameCollection[0].yearpublished,
-				board_image: $scope.userGameCollection[0].image
+				board_image: $scope.userGameCollection[0].thumbnail
 			}
 		);
 			})
@@ -104,7 +104,6 @@ angular.module('app.controllers', [])
 
 	$scope.quickPlay = function(numOfPlayers, timeAvailable) {
 		$scope.quickPlayGameList = [];
-		console.log($scope.quickPlayGameList[0].image);
 		if(angular.isUndefined(numOfPlayers) || numOfPlayers === null) {
 			$scope.playerErrorMsg = 'Please enter an amount of players';
 			throw 'Number of player is undefined or null';
