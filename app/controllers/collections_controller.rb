@@ -1,7 +1,10 @@
 class CollectionsController < ApplicationController
-  before_action :set_collection, only: [:destroy]
+  before_action :set_collection, only: [:destroy,:show]
+
   def show
-    @collection = Collection.all
+    @user = User.find(params[:user_id])
+    @collection = Collection.find(params[:id])
+    render json: @collection.to_json
   end
 
   def create
