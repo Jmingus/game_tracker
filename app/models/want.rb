@@ -7,5 +7,5 @@ class Want < ActiveRecord::Base
 
   validates_attachment_content_type :board_image, :content_type => /\Aimage\/.*\Z/
   validates_uniqueness_of :board_name
-  validates_presence_of :board_image, :min_player, :max_player, :playtime, :board_name, :published
+  validates_presence_of  :min_player, :max_player, :playtime, :board_name, :published
 end
