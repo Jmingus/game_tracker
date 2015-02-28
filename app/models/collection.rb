@@ -7,5 +7,5 @@ class Collection < ActiveRecord::Base
 
   validates_attachment_content_type :board_image, :content_type => /\Aimage\/.*\Z/
   validates_uniqueness_of :board_name
-  validates_presence_of :board_name, :board_image, :min_player, :max_player, :playtime, :published
+  validates_presence_of :board_name, :min_player, :max_player, :playtime, :published
 end

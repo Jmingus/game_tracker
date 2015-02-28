@@ -5,7 +5,7 @@ class CollectionsController < ApplicationController
     @user = User.find(params[:user_id])
     @collection = @user.collections.create(collection_params)
     @collection.user_id = current_user.id
-    if @collection.save
+    if @collection.save!
       render json: @collection.to_json, notice: 'Collection Item Saved'
     else
       render json: @collection.to_json, notice: 'Errors are afoot in the create method'
@@ -13,7 +13,7 @@ class CollectionsController < ApplicationController
   end
 
   def destroy
-    if @collection.destroy
+    if @collection.destroy!
       render json: @collection.to_json, notice: 'Collection Item Destroy'
     else
       render json: @collection.to_json, notice: 'Errors are afoot in the destroy method'

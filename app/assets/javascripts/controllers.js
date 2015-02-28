@@ -8,10 +8,20 @@ angular.module('app.controllers', [])
 	$scope.checkBox = false;
 	$scope.userGameCollection = [];
 	$scope.formmatedGameCollection = [];
+	$scope.quickPlayGameList = [];
+	$scope.storedUserGameList = [];
 	$scope.x = 0;
 	var sort = true;
 	$scope.showTable = false;
 	$scope.errorMsg = '';
+
+	$http.get('http://tiny-pizza-server.herokuapp.com/collections/TJJ-hackathon/')
+		.success(function(response) {
+			$scope.storedUserGameList = response;
+		})
+		.error(function(err) {
+			console.log(err);
+		});
 
 	$scope.nameClick = function() {
 		console.log('Name sort clicked');
@@ -74,19 +84,44 @@ angular.module('app.controllers', [])
 				} 
 				console.log($scope.userGameCollection);
 
-			$http.post('/users/'+userId+'/testers',
+			//$http.post('/users/'+userId+'/testers.json',
+			$http.post('http://tiny-pizza-server.herokuapp.com/collections/TJJ-hackathon/',
 			{
 				board_name: $scope.userGameCollection[0].name.toString() || $scope.userGameCollection[0].name._text,
 				min_player: $scope.userGameCollection[0].minplayers,
 				max_player: $scope.userGameCollection[0].maxplayers,
 				playtime: $scope.userGameCollection[0].playingtime,
-				published: $scope.userGameCollection[0].yearpublished
-				//board_image: $scope.userGameCollection[0].image
+				published: $scope.userGameCollection[0].yearpublished,
+				board_image: $scope.userGameCollection[0].image
 			}
 		);
 			})
 			.error(function(err) {
 				console.log(err);
 			});
+	};
+
+	$scope.quickPlay = function(numOfPlayers, timeAvailable) {
+		if(angular.isUndefined(numOfPlayers) || numOfPlayers === null) {
+			throw 'Number of player is undefined or null';
+		}
+		if(angular.isUndefined(timeAvailable) || timeAvailable === null) {
+			throw 'Time available is undefined or null';
+		}
+
+		for(var i=0; i < $scope.storedUserGameList.length; i++) {
+			if($scope.storedUserGameList[i].min_player > numOfPlayers || 
+				$scope.storedUserGameList[i].max_player < numOfPlayers) {
+				console.log('Game'+[i]+' does not meet player requirements');	
+			}
+			else if($scope.storedUserGameList[i].playtime < timeAvailable) {
+				console.log('Game'+[i]+' does not meet time requirements');	
+			}
+			else {
+				console.log('else');
+				$scope.quickPlayGameList.push($scope.storedUserGameList[i]);
+			}
+		}
+		console.log($scope.quickPlayGameList);
 	};
 });
