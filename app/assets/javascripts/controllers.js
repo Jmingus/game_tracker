@@ -10,12 +10,12 @@ angular.module('app.controllers', [])
 	$scope.formmatedGameCollection = [];
 	$scope.quickPlayGameList = [];
 	$scope.storedUserGameList = [];
-	$scope.x = 0;
 	var sort = true;
 	$scope.showTable = false;
 	$scope.errorMsg = '';
 
-	$http.get('http://tiny-pizza-server.herokuapp.com/collections/TJJ-hackathon/')
+	//$http.get('/users/'+userId+'/collection')
+	$http.get('/users/'+userId+'/collections/1')
 		.success(function(response) {
 			$scope.storedUserGameList = response;
 		})
@@ -41,6 +41,8 @@ angular.module('app.controllers', [])
 		if(searchParam.length < 2) {
 			$scope.errorMsg = "Search requires 2 or more characters";
 		}
+
+		$scope.showTable = true;
 
 		$http.get('http://www.boardgamegeek.com/xmlapi/search?search='+searchParam)
 			.success(function(response) {
@@ -84,8 +86,8 @@ angular.module('app.controllers', [])
 				} 
 				console.log($scope.userGameCollection);
 
-			//$http.post('/users/'+userId+'/testers.json',
-			$http.post('http://tiny-pizza-server.herokuapp.com/collections/TJJ-hackathon/',
+			$http.post('/users/'+userId+'/collections',
+			//$http.post('http://tiny-pizza-server.herokuapp.com/collections/TJJ-hackathon/',
 			{
 				board_name: $scope.userGameCollection[0].name.toString() || $scope.userGameCollection[0].name._text,
 				min_player: $scope.userGameCollection[0].minplayers,
