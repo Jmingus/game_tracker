@@ -15,7 +15,14 @@ html {
         padding-right: 1em;
     }
 }
-
+.footer {
+    position: absolute;
+    bottom: 0px;
+    }
+.copyright {
+    text-decoration: none;
+    margin-left: 37em;
+}
 /* ADDGAME.HTML STYLING*/
 h4 {
     display:inline-block;
@@ -71,19 +78,39 @@ tbody {
 
 
 /* BOARDGAME.HTML STLYING! */
+.tab {
+    width: 20%;
+    height: 8%;
+    text-align:center;
+    border: 2px solid #423446;
+    border-top: none;
+    border-left: none;
+    border-radius:5px;
+    padding-top:.7em;
+    background-color: #B9B09F;
+}
 .gameInfoBox {
-    width: 700px;
-    height:500px;
+    width: 50%;
+    height: 30em;
     border: 2px solid #423446;
     margin: 0 auto;
+    overflow: hidden;
 }
 
-.deviseinfo{
-    text-align:center;
-}
 
+
+/* BUDDIES.HTML STYLING */
 .funny {
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+
+
+
+
+
+
+.deviseinfo{
+    text-align:center;
 }
