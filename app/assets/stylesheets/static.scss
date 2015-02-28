@@ -2,25 +2,48 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 html {
-    background-color: #A9D8C8;
+    background-color: #DDE8E0;
+    font-family: Raleway;
 }
 .mainnav {
     text-align:center;
     a{
         color: #423446;
         text-decoration: none;
+        font-size:1.2em;
+        padding-left: 1em;
+        padding-right: 1em;
     }
 }
 
+/* ADDGAME.HTML STYLING*/
 h4 {
     display:inline-block;
 }
 h1 {
     text-align: center;
     color: #CF6B57;
+    font-size:2.4em;
+}
+h2 {
+    text-align: center;
+    color: #CF6B57;
+    font-size:2.2em;
 }
 form {
     text-align: center;
+}
+.container-1 input#search{
+  width: 250px;
+  height: 40px;
+  background: #DDE8E0;
+  border: 1px solid #423446 ;
+  font-size: 12pt;
+  color: #423446;
+  padding-left: 45px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
 }
 table {
     margin: 15px auto;
@@ -29,11 +52,15 @@ table {
 thead {
     color:#CF6B57;
     width: 50%;
+    font-size: 1.4em;
 }
 tbody {
     color:#423446;
     width: 50%;
     text-align:left;
+    td:nth-child(3) {
+        text-align:center;
+    }
 }
 .year-published {
     text-align:center;
@@ -42,10 +69,21 @@ tbody {
     text-align:center;
 }
 
+
 /* BOARDGAME.HTML STLYING! */
 .gameInfoBox {
     width: 700px;
     height:500px;
     border: 2px solid #423446;
     margin: 0 auto;
+}
+
+.deviseinfo{
+    text-align:center;
+}
+
+.funny {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
