@@ -124,6 +124,9 @@ tbody {
         text-align:center;
     }
 }
+.selected:hover {
+    background-color: rgba(207, 107, 87, 0.3);
+}
 .year-published {
     text-align:center;
 }
