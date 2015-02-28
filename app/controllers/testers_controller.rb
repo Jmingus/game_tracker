@@ -42,10 +42,10 @@ class TestersController < ApplicationController
   def update
     respond_to do |format|
       if @tester.update(tester_params)
-        format.html { redirect_to @tester, notice: 'Tester was successfully updated.' }
+
         format.json { render :show, status: :ok, location: @tester }
       else
-        format.html { render :edit }
+  
         format.json { render json: @tester.errors, status: :unprocessable_entity }
       end
     end
@@ -56,7 +56,7 @@ class TestersController < ApplicationController
   def destroy
     @tester.destroy
     respond_to do |format|
-      format.html { redirect_to testers_url, notice: 'Tester was successfully destroyed.' }
+
       format.json { head :no_content }
     end
   end
@@ -69,6 +69,6 @@ class TestersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tester_params
-      params[:tester]
+      params[:tester].permit(:board_name,:max_player,:min_player,:favorite,:up_for_trade,:published,:playtime)
     end
 end

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :testers
+  resources :users do
+    resources :testers
+  end
 
   devise_for :users
   resources :users do
