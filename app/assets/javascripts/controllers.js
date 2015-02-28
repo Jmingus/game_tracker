@@ -20,7 +20,6 @@ angular.module('app.controllers', [])
 				 if(!_.isArray(gameCollection)) {
 				 	gameCollection = [gameCollection];
 				 } 
-				 console.log(gameCollection);
 				 $scope.displayList = gameCollection;
 			})
 			.error(function(err) {
@@ -34,7 +33,6 @@ angular.module('app.controllers', [])
 		$http.get('http://www.boardgamegeek.com/xmlapi/boardgame/'+gameId)
 		//$http.get('http://www.boardgamegeek.com/xmlapi/search?search='+gameId+'&exact=1')
 			.success(function(response) {
-				console.log(response);
 				 $scope.userGameCollection = parser.xml_str2json(response);
 				 $scope.userGameCollection = $scope.userGameCollection.boardgames.boardgame;
 				 if(!$scope.userGameCollection) {
@@ -43,26 +41,25 @@ angular.module('app.controllers', [])
 				 if(!_.isArray($scope.userGameCollection)) {
 				 	$scope.userGameCollection = [$scope.userGameCollection];
 				 } 
-				 console.log($scope.gameCollection);
+				 console.log($scope.userGameCollection);
+				 console.log($scope.userGameCollection[0].name.toString());
 			})
 			.error(function(err) {
 				console.log(err);
 			});
-		};
 
-		// $http.post(
-		// 		'',
-		// 		{
-		// 			board_name:
-		// 			min_player:
-		// 			max_player:
-		// 			playtime:
-		// 			published:
-		// 			board_image:
-		// 		}
-		// 	);
-
-	// };
+		$http.post(
+			'/users/:user_id/collections(.:json)',
+			{
+				board_name: $scope.userGameCollection[0].name._text,
+				min_player: $scope.userGameCollection[0].minplayers,
+				max_player: $scope.userGameCollection[0].maxplayers,
+				playtime: $scope.userGameCollection[0].playingtime,
+				published: $scope.userGameCollection[0].yearpublished,
+				board_image: $scope.userGameCollection[0].yearpublished
+			}
+		);
+	}
 
 	$scope.$watch('searchParam', function() {
 		if($scope.filterBy === '') {
