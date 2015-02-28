@@ -22,15 +22,10 @@ angular.module('app.controllers', [])
 		else {
 			$scope.displayList = _.sortBy(gameCollection, function(element) {
 				sort = true;
-				return element.toString().toLowerCase() || element._.text.toLowerCase();
+				return element.name;
 			});
 		}
 	};
-
-	// $scope.yearClick = function() {
-	// 	console.log('Year sort clicked');
-	// 	if
-	// }
 
 	$scope.searchSubmit=function(searchParam){
 		if(searchParam.length < 2) {
@@ -39,6 +34,7 @@ angular.module('app.controllers', [])
 
 		$http.get('http://www.boardgamegeek.com/xmlapi/search?search='+searchParam)
 			.success(function(response) {
+				$scope.showTable = true;
 				gameCollection = parser.xml_str2json(response);
 				gameCollection = gameCollection.boardgames.boardgame;
 				if(!gameCollection) {
@@ -51,11 +47,14 @@ angular.module('app.controllers', [])
 				for(var i=0; i<gameCollection.length; i++) {
 					$scope.formmatedGameCollection.push({
 						yearpublished: gameCollection[i].yearpublished,
-						name: gameCollection[i].name.toString() || gameCollection[i].name._text
+						name: gameCollection[i].name.toString() || gameCollection[i].name._text,
+						gameId: gameCollection[i]._objectid
 					});
 				}
-				console.log($scope.formmatedGameCollection);
 				$scope.displayList = $scope.formmatedGameCollection;
+				$scope.displayList = _.sortBy($scope.formmatedGameCollection, function(element) {
+					return element.name;
+				});
 			})
 			.error(function(err) {
 				console.log(err);
@@ -63,7 +62,6 @@ angular.module('app.controllers', [])
 		};
 
 	$scope.addItemToCollection = function(gameId) {
-		console.log('add item clicked');
 		$http.get('http://www.boardgamegeek.com/xmlapi/boardgame/'+gameId)
 			.success(function(response) {
 				$scope.userGameCollection = parser.xml_str2json(response);
@@ -75,11 +73,10 @@ angular.module('app.controllers', [])
 					$scope.userGameCollection = [$scope.userGameCollection];
 				} 
 				console.log($scope.userGameCollection);
-				console.log($scope.userGameCollection[0].name.toString());
 
-			$http.post('/users/current_user/collections()',
+			$http.post('/users/'+userId+'/collections',
 			{
-				board_name: $scope.userGameCollection[0].name.toString(),
+				board_name: $scope.userGameCollection[0].name.toString() || $scope.userGameCollection[0].name._text,
 				min_player: $scope.userGameCollection[0].minplayers,
 				max_player: $scope.userGameCollection[0].maxplayers,
 				playtime: $scope.userGameCollection[0].playingtime,
@@ -92,17 +89,4 @@ angular.module('app.controllers', [])
 				console.log(err);
 			});
 	};
-
-	$scope.$watch('searchParam', function() {
-		if($scope.filterBy === '') {
-			$scope.displayList = _.filter($scope.gameCollection, function(element) {
-			return element.name.toString().indexOf($scope.searchParam) >= 0;  
-		});
-		}
-		else {
-			$scope.displayList = _.filter($scope.gameCollection, function(element) {
-				return element.name.toString().indexOf($scope.searchParam) >= 0;  
-			});
-		}
-	});
 });
