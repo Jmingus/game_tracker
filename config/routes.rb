@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  resources :users do
-    resources :testers
-  end
-
   devise_for :users
   resources :users do
     resources :collections
