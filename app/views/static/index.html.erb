@@ -5,7 +5,7 @@
     <a href="#gamerBuddies">Buddies</a> |
     <%= link_to 'Sign-Out', destroy_user_session_path, method: :delete, class: 'signout' %>
 		<%= javascript_tag "var userId = #{current_user.id};" %>
-		<%= javascript_tag "var collectionId = #{current_user.collection.all};" %>
+		<%= javascript_tag "var collectionId = #{current_user.collections.all};" %>
 </nav>
 
 
