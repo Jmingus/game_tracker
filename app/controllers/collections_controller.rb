@@ -5,11 +5,19 @@ class CollectionsController < ApplicationController
     @user = User.find(params[:user_id])
     @collection = @user.collections.create(collection_params)
     @collection.user_id = current_user.id
-    @collection.save
+    if @collection.save
+      redirect_to root_path, flash: { notice: 'Collection Item Saved'}
+    else
+      redirect_to root_path, flash: { notice: 'Collection Item has errors when creating, please inform Jacob'}
+    end
   end
 
   def destroy
-    @collection.destroy
+    if @collection.destroy
+      redirect_to root_path, flash: { notice: 'Collection Item Destroyed'}
+    else
+      redirect_to root_path, flash: { notice: 'Collection Item has errors when destroying, please inform Jacob'}
+    end
   end
 
   private
