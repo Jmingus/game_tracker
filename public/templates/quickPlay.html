@@ -6,13 +6,17 @@
 	<li>  Quick Play will look through your Vault and choose a game that meets those criterea. </li>
 	<li>  If you don't want to play the game shown, click next to see another match. </li>
 </ol>
-<div class="bubble">
-	<input type="number" ng-model="numOfPlayers" placeholder="How many players do you have?">
+<div class="textbubbles">
+<div class="bubble">How many players do you have?<br>
+		<input type="number" ng-model="numOfPlayers">   players
 </div>
-<div class="bubble2">
-	<input type="number" ng-model="timeAvailable" placeholder="How much time do you have to play?">
+<div class="bubble2">How much time do you have to play?<br>
+	<input type="number" ng-model="timeAvailable">   minutes
 </div>
 <button ng-click="quickPlay(numOfPlayers, timeAvailable)"> I Get It, Let's Go! </button>
+</div>
+<div class="letsgobutton">
+</div>
 <div ng-repeat="game in quickPlayGameList">
 	<p> {{ game.board_name }} </p>
 </div>
