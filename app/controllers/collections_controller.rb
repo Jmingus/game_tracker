@@ -1,5 +1,8 @@
 class CollectionsController < ApplicationController
   before_action :set_collection, only: [:destroy]
+  def show
+    @collection = Collection.all
+  end
 
   def create
     @user = User.find(params[:user_id])
