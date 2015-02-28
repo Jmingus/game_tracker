@@ -10,6 +10,9 @@ html {
     a{
         color: #423446;
         text-decoration: none;
+        font-size:1.2em;
+        padding-left: 1em;
+        padding-right: 1em;
     }
 }
 
@@ -20,18 +23,16 @@ h4 {
 h1 {
     text-align: center;
     color: #CF6B57;
+    font-size:2.4em;
+}
+h2 {
+    text-align: center;
+    color: #CF6B57;
+    font-size:2.2em;
 }
 form {
     text-align: center;
 }
-/* input[type=search] {
-color: #423446;
-cursor: pointer;
-width: 20%;
-letter-spacing: 4px;
-word-spacing: 20px;
-font-size:20px;
-} */
 .container-1 input#search{
   width: 250px;
   height: 40px;
@@ -51,6 +52,7 @@ table {
 thead {
     color:#CF6B57;
     width: 50%;
+    font-size: 1.4em;
 }
 tbody {
     color:#423446;
@@ -74,4 +76,14 @@ tbody {
     height:500px;
     border: 2px solid #423446;
     margin: 0 auto;
+}
+
+.deviseinfo{
+    text-align:center;
+}
+
+.funny {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
