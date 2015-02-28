@@ -4,7 +4,8 @@
     <div class="box">
           <div class="container-1">
               <span class="icon"><i class="fa fa-search"></i></span>
-             <input ng-model="searchParam" type="search" id="search" results=5 placeholder="Search for a game..." />
+             <input ng-model="searchParam" type="search" id="search" results=10 placeholder="Search for a game..." />
+             <h4 ng-bind="errorMsg" class="errorMsg" Search requires two or more characters.</h4>
           </div>
     </div>
 </form>
@@ -15,7 +16,7 @@
 		<th class="add-game-icon"> Add To Vault </th>
 	</thead>
 	<tbody>
-		<tr ng-class="selected" ng-repeat="game in displayList">
+		<tr ng-class="selected" ng-repeat="game in displayList | limitTo:50">
 			<td> {{ game.name.toString() || game.name._text }} </td>
 			<td class="year-published"> {{ game.yearpublished }}</td>
 			<td> <i ng-click="addItemToCollection(game.gameId)" class="fa fa-plus"></i> </td>
