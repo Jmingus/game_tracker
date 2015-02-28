@@ -4,7 +4,7 @@
     <a href="#quickPlay">Quick Play</a> |
     <a href="#gamerBuddies">Buddies</a> |
     <%= link_to 'Sign-Out', destroy_user_session_path, method: :delete, class: 'signout' %>
-
+		"<%= javascript_tag "var userId = #{@current_user.id};" %>"
 </nav>
 
 
