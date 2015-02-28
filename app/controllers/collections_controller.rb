@@ -2,7 +2,9 @@ class CollectionsController < ApplicationController
   before_action :set_collection, only: [:destroy]
 
   def create
-    @collection = Collection.create( collection_params )
+    @user = User.find(params[:user_id])
+    @collection = @user.collections.create(collection_params)
+    @collection.user_id = current_user.id
     if @collection.save
       redirect_to root_path, flash: { notice: 'Collection Item Saved'}
     else

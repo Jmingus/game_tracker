@@ -597,6 +597,7 @@
       "/Users/Jacob/theironyard/week_eight/thursday/game_tracker/app/controllers/collections_controller.rb": [
         1,
         1,
+        null,
         1,
         0,
         0,
@@ -704,6 +705,44 @@
       ],
       "/Users/Jacob/theironyard/week_eight/thursday/game_tracker/app/controllers/wants_controller.rb": [
         1,
+        1,
+        null,
+        1,
+        0,
+        0,
+        0,
+        null,
+        0,
+        null,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        0,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
         null
       ],
       "/Users/Jacob/theironyard/week_eight/thursday/game_tracker/spec/helpers/collections_helper_spec.rb": [
@@ -790,6 +829,8 @@
         null,
         null,
         1,
+        1,
+        1,
         null
       ],
       "/Users/Jacob/theironyard/week_eight/thursday/game_tracker/spec/models/user_spec.rb": [
@@ -815,6 +856,8 @@
         null,
         null,
         1,
+        1,
+        1,
         null
       ],
       "/Users/Jacob/theironyard/week_eight/thursday/game_tracker/spec/views/static/index.html.erb_spec.rb": [
@@ -825,6 +868,6 @@
         null
       ]
     },
-    "timestamp": 1425059922
+    "timestamp": 1425076527
   }
 }
