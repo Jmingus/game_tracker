@@ -12,6 +12,8 @@ angular.module('app.controllers', [])
 	var sort = true;
 	$scope.showTable = false;
 	$scope.errorMsg = '';
+	$scope.playerErrorMsg = '';
+	$scope.timeErrorMsg = '';
 
 	$http.get('http://tiny-pizza-server.herokuapp.com/collections/TJJ-hackathon/')
 	//$http.get('/users/'+userId+'/collections/1')
@@ -102,11 +104,14 @@ angular.module('app.controllers', [])
 
 	$scope.quickPlay = function(numOfPlayers, timeAvailable) {
 		$scope.quickPlayGameList = [];
+		console.log($scope.quickPlayGameList[0].image);
 		if(angular.isUndefined(numOfPlayers) || numOfPlayers === null) {
+			$scope.playerErrorMsg = 'Please enter an amount of players';
 			throw 'Number of player is undefined or null';
 		}
 		if(angular.isUndefined(timeAvailable) || timeAvailable === null) {
 			throw 'Time available is undefined or null';
+			$scope.timeErrorMsg = 'Please enter a time constraint';
 		}
 
 		for(var i=0; i < $scope.storedUserGameList.length; i++) {
