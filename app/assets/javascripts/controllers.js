@@ -15,8 +15,8 @@ angular.module('app.controllers', [])
 	$scope.playerErrorMsg = '';
 	$scope.timeErrorMsg = '';
 
-	$http.get('http://tiny-pizza-server.herokuapp.com/collections/TJJ-hackathon/')
-	//$http.get('/users/'+userId+'/collections/1')
+	//$http.get('/users/'+userId+'/collection')
+	$http.get('/users/'+userId+'/collections/')
 		.success(function(response) {
 			$scope.storedUserGameList = response;
 		})
