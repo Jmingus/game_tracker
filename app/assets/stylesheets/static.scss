@@ -1,3 +1,51 @@
+.ribbon {
+ font-size: 16px !important;
+ /* This ribbon is based on a 16px font side and a 24px vertical rhythm. I've used em's to position each element for scalability. If you want to use a different font size you may have to play with the position of the ribbon elements */
+
+ width: 50%;
+
+ position: relative;
+ background: #CF6B57;
+ color: #fff;
+ text-align: center;
+ padding: 1em 2em; /* Adjust to suit */
+ margin: 2em auto 3em; /* Based on 24px vertical rhythm. 48px bottom margin - normally 24 but the ribbon 'graphics' take up 24px themselves so we double it. */
+}
+.ribbon:before, .ribbon:after {
+ content: "";
+ position: absolute;
+ display: block;
+ bottom: -1em;
+ border: 1.5em solid #CF6B57;
+ z-index: -1;
+}
+.ribbon:before {
+ left: -2em;
+ border-right-width: 1.5em;
+ border-left-color: transparent;
+}
+.ribbon:after {
+ right: -2em;
+ border-left-width: 1.5em;
+ border-right-color: transparent;
+}
+.ribbon .ribbon-content:before, .ribbon .ribbon-content:after {
+ content: "";
+ position: absolute;
+ display: block;
+ border-style: solid;
+ border-color: #bf4d36 transparent transparent transparent;
+ bottom: -1em;
+}
+.ribbon .ribbon-content:before {
+ left: 0;
+ border-width: 1em 0 0 1em;
+}
+.ribbon .ribbon-content:after {
+ right: 0;
+ border-width: 1em 1em 0 0;
+}
+
 // Place all the styles related to the static controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
@@ -8,7 +56,7 @@ html {
 .mainnav {
     text-align:center;
     a{
-        color: #423446;
+        color: #f0f0f0;
         text-decoration: none;
         font-size:1.2em;
         padding-left: 1em;
@@ -29,13 +77,13 @@ h4 {
 }
 h1 {
     text-align: center;
-    color: #CF6B57;
+    color: #7B717E;
     font-size:2.4em;
     margin: .5em auto;
 }
 h2 {
     text-align: center;
-    color: #CF6B57;
+    color: #7B717E;
     font-size:2.2em;
     margin: 0 auto;
 }
@@ -45,7 +93,7 @@ form {
 .container-1 input#search{
   width: 250px;
   height: 40px;
-  background: #DDE8E0;
+  background: white;
   border: 1px solid #423446 ;
   font-size: 12pt;
   color: #423446;
@@ -149,17 +197,16 @@ tbody {
  position: relative;
  width: 40%;
  height: 3em;
- padding: 0px;
- background: #E2A69A;
+ padding: 16px 16px;;
+ background: #A9D8C8;
  -webkit-border-radius: 13px;
  -moz-border-radius: 13px;
  border-radius: 13px;
- border: #423446 solid 3px;
- margin: 2em auto;
+border: #7B717E solid 3px;
+margin: 2em auto;
  text-align: center;
  input{
-     background-color: #DDE8E0;
-     border: 1px solid #423446;
+     background-color: white;
      font-size: 12pt;
      color: #423446;
      width: 3em;
@@ -174,8 +221,8 @@ tbody {
  content: '';
  position: absolute;
  border-style: solid;
- border-width: 15px 15px 0;
- border-color: #E2A69A transparent;
+border-width: 1px 1px 0;
+border-color: #7B717E transparent;
  display: block;
  width: 0;
  z-index: 1;
@@ -189,7 +236,7 @@ tbody {
  position: absolute;
  border-style: solid;
  border-width: 17px 17px 0;
- border-color: #423446 transparent;
+ border-color: #7B717E transparent;
  display: block;
  width: 0;
  z-index: 0;
@@ -202,17 +249,16 @@ tbody {
 position: relative;
 width: 40%;
 height: 3em;
-padding: 0px;
-background: #E2A69A;
+padding: 16px 16px;;
+background: #A9D8C8;
 -webkit-border-radius: 13px;
 -moz-border-radius: 13px;
 border-radius: 13px;
-border: #423446 solid 3px;
+border: #7B717E solid 3px;
 margin: 2em auto;
 text-align: center;
 input{
-    background-color: #DDE8E0;
-    border: 1px solid #423446;
+    background-color: white;
     font-size: 12pt;
     color: #423446;
     width: 3em;
@@ -226,8 +272,8 @@ input{
 content: '';
 position: absolute;
 border-style: solid;
-border-width: 0 15px 15px;
-border-color: #E2A69A transparent;
+border-width: 0 1px 1px;
+border-color: #7B717E transparent;
 display: block;
 width: 0;
 z-index: 1;
@@ -241,7 +287,7 @@ content: '';
 position: absolute;
 border-style: solid;
 border-width: 0 17px 17px;
-border-color: #423446 transparent;
+border-color: #7B717E transparent;
 display: block;
 width: 0;
 z-index: 0;
@@ -251,23 +297,43 @@ left: 85%;
 }
 .letsgobutton {
     padding:5px 15px;
-    background:#E2A69A;
-    border: 1px solid #423446;
+    background:#A9D8C8;
+    border: 1px solid #7B717E;
     cursor:pointer;
     -webkit-border-radius: 5px;
     border-radius: 5px;
     font-size: 1em;
     font-weight:800;
     color: #423446;
+    padding: 1em 1em;
 }
 
  .quickplaylist {
-    text-align: center;
+     margin: 0 auto;
+     max-width: 40%;
+     padding: 1em 0em .5em 0em;
+     color: #7B717E;
+     ol{
+    text-align: left;
     list-style-type: none;
+}
 }
 
 /* HOME.HTML STYLING!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
 .thumbnails {
     margin: 0 auto;
     text-align:center;
+}
+
+
+.logintitle {
+    text-align:center;
+    margin: 0 auto;
+    color: #CF6B57;
+    font-size: 4em;
+    background-color: #E7C865;
+    border-radius: 5px;
+    padding: .2em .2em;
+    margin-bottom: 1em;
+    font-family: Metamorphous;
 }
