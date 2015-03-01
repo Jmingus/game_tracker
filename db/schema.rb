@@ -33,6 +33,22 @@ ActiveRecord::Schema.define(version: 20150301182748) do
 
   add_index "collections", ["user_id"], name: "index_collections_on_user_id", using: :btree
 
+  create_table "testers", force: :cascade do |t|
+    t.boolean  "favorite"
+    t.string   "board_name"
+    t.integer  "min_player"
+    t.integer  "max_player"
+    t.integer  "playtime"
+    t.date     "published"
+    t.boolean  "up_for_trade"
+    t.string   "comment"
+    t.integer  "user_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "testers", ["user_id"], name: "index_testers_on_user_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "user_name",                           null: false
     t.datetime "created_at",                          null: false
@@ -75,5 +91,6 @@ ActiveRecord::Schema.define(version: 20150301182748) do
   add_index "wants", ["user_id"], name: "index_wants_on_user_id", using: :btree
 
   add_foreign_key "collections", "users"
+  add_foreign_key "testers", "users"
   add_foreign_key "wants", "users"
 end
