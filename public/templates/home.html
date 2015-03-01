@@ -2,7 +2,7 @@
 <div class="thumbnails">
 
 <span ng-repeat="game in storedUserGameList">
- 	<span> <a ng-click="changeGameName(game.board_name)" ui-sref='boardGame'> <img src="{{game.image}}"> </a> </span>
+ 	<span> <a ng-click="changeGameName(game.board_name, game.description, game.min_player, game.max_player, game.playtime, game.published)" ui-sref='boardGame'> <img src="{{game.image}}"> </a> </span>
 </span>
 </div>
 
