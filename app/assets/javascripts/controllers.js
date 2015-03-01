@@ -3,26 +3,43 @@ angular.module('app.controllers', [])
 
 	var parser = new X2JS();
 	var gameCollection = [];
+	var sort = true;
 	$scope.displayList = [];
 	$scope.searchParam = '';
 	$scope.userGameCollection = [];
 	$scope.formmatedGameCollection = [];
 	$scope.quickPlayGameList = [];
 	$scope.storedUserGameList = [];
-	var sort = true;
 	$scope.showTable = false;
 	$scope.errorMsg = '';
 	$scope.playerErrorMsg = '';
 	$scope.timeErrorMsg = '';
 
-	$http.get('http://tiny-pizza-server.herokuapp.com/collections/TJJ-hackathon/')
-	//$http.get('/users/'+userId+'/collections/1')
-		.success(function(response) {
-			$scope.storedUserGameList = response;
-		})
-		.error(function(err) {
-			console.log(err);
-		});
+	function getStoredUserCollection() {
+		$http.get('http://tiny-pizza-server.herokuapp.com/collections/TJJ-hackathon/')
+		//$http.get('/users/'+userId+'/collections/1')
+			.success(function(response) {
+				$scope.storedUserGameList = response;
+			})
+			.error(function(err) {
+				console.log(err);
+			});
+	};
+
+	getStoredUserCollection();
+
+	$scope.tabClick = function(whichTab) {
+		console.log(whichTab+' Tag clicked');
+		$scope.show = 
+		
+	}
+
+	$scope.changeGameName = function(data) {
+		$scope.primaryName = data.split(',');
+		$scope.primaryName = $scope.primaryName[0];
+		console.log($scope.primaryName);
+		console.log(typeof $scope.primaryName);
+	}
 
 	$scope.nameClick = function() {
 		console.log('Name sort clicked');
@@ -83,7 +100,6 @@ angular.module('app.controllers', [])
 				if(!_.isArray($scope.userGameCollection)) {
 					$scope.userGameCollection = [$scope.userGameCollection];
 				} 
-				console.log($scope.userGameCollection);
 
 			//$http.post('/users/'+userId+'/collections',
 			$http.post('http://tiny-pizza-server.herokuapp.com/collections/TJJ-hackathon/',
@@ -93,13 +109,15 @@ angular.module('app.controllers', [])
 				max_player: $scope.userGameCollection[0].maxplayers,
 				playtime: $scope.userGameCollection[0].playingtime,
 				published: $scope.userGameCollection[0].yearpublished,
-				board_image: $scope.userGameCollection[0].thumbnail
+				board_image: $scope.userGameCollection[0].thumbnail,
+				description: $scope.userGameCollection[0].description
 			}
 		);
 			})
 			.error(function(err) {
 				console.log(err);
 			});
+			getStoredUserCollection();
 	};
 
 	$scope.quickPlay = function(numOfPlayers, timeAvailable) {
@@ -126,6 +144,5 @@ angular.module('app.controllers', [])
 				$scope.quickPlayGameList.push($scope.storedUserGameList[i]);
 			}
 		}
-		console.log($scope.quickPlayGameList);
 	};
 });
