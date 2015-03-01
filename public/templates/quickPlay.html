@@ -13,7 +13,7 @@
 <div class="bubble2">How much time do you have to play?<br>
 	<input type="number" ng-model="timeAvailable">   minutes
 </div>
-<input type="submit" value="I Get It, Let's Go!" class="letsgobutton" ng-click="quickPlay(numOfPlayers, timeAvailable)"/>
+<input type="submit" value="Tell me what to play!" class="letsgobutton" ng-click="quickPlay(numOfPlayers, timeAvailable)"/>
 </div>
 <div ng-repeat="game in quickPlayGameList">
 	<p> <img src="{{ game.board_image }}"> </p>
