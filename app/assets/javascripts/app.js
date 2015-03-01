@@ -19,7 +19,7 @@ angular.module('app', ['app.controllers', 'ui.router'])
 	.state('quickPlay', {
 		url: '/quickPlay',
 		templateUrl: 'templates/quickPlay.html',
-		controller: ''
+		controller: 'quickPlayCtrl'
 	})
 	.state('gamerBudies', {
 		url: '/gamerBuddies',

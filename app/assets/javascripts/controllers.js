@@ -21,6 +21,7 @@ angular.module('app.controllers', [])
 		$http.get('/users/'+userId+'/collections/')
 			.success(function(response) {
 				$scope.storedUserGameList = response;
+				console.log($scope.storedUserGameList);
 			})
 			.error(function(err) {
 				console.log(err);
@@ -110,8 +111,8 @@ angular.module('app.controllers', [])
 				max_player: $scope.userGameCollection[0].maxplayers,
 				playtime: $scope.userGameCollection[0].playingtime,
 				published: $scope.userGameCollection[0].yearpublished,
-				board_image: $scope.userGameCollection[0].thumbnail
-				//description: $scope.userGameCollection[0].description
+				image: $scope.userGameCollection[0].thumbnail,
+				description: $scope.userGameCollection[0].description
 			}
 		);
 			})
@@ -151,5 +152,8 @@ angular.module('app.controllers', [])
 
 })
 .controller('homeCtrl', function() {
+
+})
+.controller('quickPlayCtrl', function() {
 
 });
