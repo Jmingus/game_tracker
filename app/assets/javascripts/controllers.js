@@ -35,9 +35,14 @@ angular.module('app.controllers', [])
 		$scope.currentTab = whichTab;
 	}
 
-	$scope.changeGameName = function(data) {
-		$scope.primaryName = data.split(',');
+	$scope.changeGameName = function(name, desc, min, max, play, year) {
+		$scope.primaryName = name.split(',');
 		$scope.primaryName = $scope.primaryName[0];
+		$scope.gameDesc = desc;
+		$scope.gameMin = min;
+		$scope.gameMax = max;
+		$scope.gamePlay = play;
+		$scope.gameYear = year;
 	}
 
 	$scope.nameClick = function() {
@@ -148,7 +153,7 @@ angular.module('app.controllers', [])
 		}
 	};
 })
-.controller('boardGameCtrl', function($scope, $rootScope) {
+.controller('boardGameCtrl', function() {
 
 })
 .controller('homeCtrl', function() {
