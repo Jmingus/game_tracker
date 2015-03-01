@@ -63,7 +63,8 @@ angular.module('app.controllers', [])
 			$scope.errorMsg = "Search requires 2 or more characters";
 		}
 
-		$http.get('http://www.boardgamegeek.com/xmlapi/search?search='+searchParam)
+		//$http.get('http://www.boardgamegeek.com/xmlapi/search?search='+searchParam)
+		$http.get('http://tiyfe-proxy.herokuapp.com/http://www.boardgamegeek.com/xmlapi/search?search='+searchParam)
 			.success(function(response) {
 				$scope.showTable = true;
 				gameCollection = parser.xml_str2json(response);
@@ -99,7 +100,8 @@ angular.module('app.controllers', [])
 		};
 
 	$scope.addItemToCollection = function(gameId) {
-		$http.get('http://www.boardgamegeek.com/xmlapi/boardgame/'+gameId)
+		//$http.get('http://www.boardgamegeek.com/xmlapi/boardgame/'+gameId)
+		$http.get('http://tiyfe-proxy.herokuapp.com/http://www.boardgamegeek.com/xmlapi/boardgame/'+gameId)
 			.success(function(response) {
 				$scope.userGameCollection = parser.xml_str2json(response);
 				$scope.userGameCollection = $scope.userGameCollection.boardgames.boardgame;
