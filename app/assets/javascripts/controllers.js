@@ -17,7 +17,7 @@ angular.module('app.controllers', [])
 
 	function getStoredUserCollection() {
 		$http.get('http://tiny-pizza-server.herokuapp.com/collections/TJJ-hackathon/')
-		//$http.get('/users/'+userId+'/collections/1')
+		//$http.get('/users/'+userId+'/collection')
 			.success(function(response) {
 				$scope.storedUserGameList = response;
 			})
@@ -30,7 +30,7 @@ angular.module('app.controllers', [])
 
 	$scope.tabClick = function(whichTab) {
 		console.log(whichTab+' Tag clicked');
-		$scope.show = 
+		//$scope.show = 
 		
 	}
 

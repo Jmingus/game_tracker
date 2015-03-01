@@ -1,10 +1,13 @@
 class CollectionsController < ApplicationController
-  before_action :set_collection, only: [:destroy,:show]
+  before_action :set_collection, only: [:destroy]
+
+  def index
+    @user = User.find(params[:user_id])
+    @collections = @user.collections
+    render json: @collections.to_json
+  end
 
   def show
-    @user = User.find(params[:user_id])
-    @collection = Collection.find(params[:id])
-    render json: @collection.to_json
   end
 
   def create
