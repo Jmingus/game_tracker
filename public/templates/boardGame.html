@@ -1,21 +1,15 @@
-<h1>Default Game Title</h1>
-
-
-
-
-
+<h1 ng-bind="primaryNameString"> Title </h1>
 
 <div class="gameInfoBox">
 
-
     <!-- <nav class="gameInfoSelector"> -->
-      <div class="tab">Description
+      <div ng-click="tabClick('description')" class="tab">Description
       </div>
-      <div class="tab">Information
+      <div ng-click="tabClick('information')" class="tab">Information
       </div>
-      <div class="tab">Media
+      <div ng-click="tabClick('media')" class="tab">Media
       </div>
-      <div class="tab">Reviews
+      <div ng-click="tabClick('reviews')" class="tab">Reviews
       </div>
 <!--     </nav> -->
 
