@@ -143,8 +143,6 @@ tbody {
     display: inline-block;
     border-top-left-radius:5px;
     border-top: 2px solid #423446;
-
-
 }
 .tab {
     height: 8%;
@@ -170,6 +168,8 @@ tbody {
     display: inline-block;
     font-size: 16px;
     text-align:center;
+    padding: 1em;
+    line-height: 1.4;
 }
 
 
@@ -317,7 +317,17 @@ left: 85%;
      ol{
     text-align: left;
     list-style-type: none;
+    line-height: 1.4;
+
 }
+}
+.quickplaygames {
+    margin: 0 auto;
+    text-align: center;
+    div {
+        display: inline-block;
+        text-align: center;
+    }
 }
 
 /* HOME.HTML STYLING!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
