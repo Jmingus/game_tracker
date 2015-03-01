@@ -36,6 +36,8 @@ class CollectionsController < ApplicationController
 
   def set_collection
     @collection = Collection.find(params[:id])
+  rescue StandardError => e
+    render json: { message: e.message, status: 404 }.to_json, status: 404
   end
 
   def collection_params

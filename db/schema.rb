@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150301182748) do
+ActiveRecord::Schema.define(version: 20150301202552) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20150301182748) do
     t.string   "min_player",   default: "1",                  null: false
     t.string   "max_player",   default: "4",                  null: false
     t.string   "playtime",     default: "60",                 null: false
-    t.string   "published",    default: "1978",               null: false
+    t.string   "published",    default: "NA",                 null: false
     t.boolean  "up_for_trade", default: false
     t.string   "image"
     t.integer  "user_id"
