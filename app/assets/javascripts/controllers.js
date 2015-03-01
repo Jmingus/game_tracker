@@ -21,7 +21,6 @@ angular.module('app.controllers', [])
 		$http.get('/users/'+userId+'/collections/')
 			.success(function(response) {
 				$scope.storedUserGameList = response;
-				console.log($scope.storedUserGameList);
 			})
 			.error(function(err) {
 				console.log(err);
@@ -64,7 +63,7 @@ angular.module('app.controllers', [])
 		}
 
 		//$http.get('http://www.boardgamegeek.com/xmlapi/search?search='+searchParam)
-		$http.get('http://tiyfe-proxy.herokuapp.com/http://www.boardgamegeek.com/xmlapi/search?search='+searchParam)
+		$http.get('http://tiyfe-proxy.herokuapp.com/http%3A%2F%2Fwww.boardgamegeek.com%2Fxmlapi%2Fsearch%3Fsearch%3D%27'+searchParam)
 			.success(function(response) {
 				$scope.showTable = true;
 				gameCollection = parser.xml_str2json(response);
@@ -101,7 +100,7 @@ angular.module('app.controllers', [])
 
 	$scope.addItemToCollection = function(gameId) {
 		//$http.get('http://www.boardgamegeek.com/xmlapi/boardgame/'+gameId)
-		$http.get('http://tiyfe-proxy.herokuapp.com/http://www.boardgamegeek.com/xmlapi/boardgame/'+gameId)
+		$http.get('http://tiyfe-proxy.herokuapp.com/http%3A%2F%2Fwww.boardgamegeek.com%2Fxmlapi%2Fboardgame%2F'+gameId)
 			.success(function(response) {
 				$scope.userGameCollection = parser.xml_str2json(response);
 				$scope.userGameCollection = $scope.userGameCollection.boardgames.boardgame;
@@ -150,7 +149,7 @@ angular.module('app.controllers', [])
 				console.log('Game'+[i]+' does not meet time requirements');	
 			}
 			else {
-				console.log('else');
+				console.log('Game'+i+'was added');
 				$scope.quickPlayGameList.push($scope.storedUserGameList[i]);
 			}
 		}
