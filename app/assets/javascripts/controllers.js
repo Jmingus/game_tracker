@@ -1,5 +1,5 @@
 angular.module('app.controllers', [])
-.controller('homeCtrl', function($scope, $http) {
+.controller('appCtrl', function($scope, $http) {
 
 	var parser = new X2JS();
 	var gameCollection = [];
@@ -15,6 +15,7 @@ angular.module('app.controllers', [])
 	$scope.playerErrorMsg = '';
 	$scope.timeErrorMsg = '';
 	$scope.currentTab ='description';
+	$scope.primaryName = 'test';
 
 	function getStoredUserCollection() {
 		$http.get('/users/'+userId+'/collections/')
@@ -36,8 +37,6 @@ angular.module('app.controllers', [])
 	$scope.changeGameName = function(data) {
 		$scope.primaryName = data.split(',');
 		$scope.primaryName = $scope.primaryName[0];
-		console.log($scope.primaryName);
-		console.log(typeof $scope.primaryName);
 	}
 
 	$scope.nameClick = function() {
@@ -70,6 +69,10 @@ angular.module('app.controllers', [])
 				if(!_.isArray(gameCollection)) {
 					gameCollection = [gameCollection];
 				} 
+				if(gameCollection.length === 0) {
+					$scope.errorMsg = "No game found. Sorry!";
+					$scope.showTable = false;
+				}
 				$scope.formmatedGameCollection = [];
 				for(var i=0; i<gameCollection.length; i++) {
 					$scope.formmatedGameCollection.push({
@@ -99,8 +102,7 @@ angular.module('app.controllers', [])
 				if(!_.isArray($scope.userGameCollection)) {
 					$scope.userGameCollection = [$scope.userGameCollection];
 				} 
-				console.log($scope.userGameCollection[0].thumbnail);
-
+			console.log($scope.userGameCollection[0].thumbnail);
 			$http.post('/users/'+userId+'/collections',
 			{
 				board_name: $scope.userGameCollection[0].name.toString() || $scope.userGameCollection[0].name._text,
@@ -108,8 +110,8 @@ angular.module('app.controllers', [])
 				max_player: $scope.userGameCollection[0].maxplayers,
 				playtime: $scope.userGameCollection[0].playingtime,
 				published: $scope.userGameCollection[0].yearpublished,
-				board_image: $scope.userGameCollection[0].thumbnail,
-				description: $scope.userGameCollection[0].description
+				board_image: $scope.userGameCollection[0].thumbnail
+				//description: $scope.userGameCollection[0].description
 			}
 		);
 			})
@@ -144,4 +146,10 @@ angular.module('app.controllers', [])
 			}
 		}
 	};
+})
+.controller('boardGameCtrl', function($scope, $rootScope) {
+
+})
+.controller('homeCtrl', function() {
+
 });
