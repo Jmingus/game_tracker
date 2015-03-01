@@ -14,10 +14,10 @@ angular.module('app.controllers', [])
 	$scope.errorMsg = '';
 	$scope.playerErrorMsg = '';
 	$scope.timeErrorMsg = '';
+	$scope.currentTab ='description';
 
 	function getStoredUserCollection() {
-		$http.get('http://tiny-pizza-server.herokuapp.com/collections/TJJ-hackathon/')
-		//$http.get('/users/'+userId+'/collection')
+		$http.get('/users/'+userId+'/collections/')
 			.success(function(response) {
 				$scope.storedUserGameList = response;
 			})
@@ -30,8 +30,7 @@ angular.module('app.controllers', [])
 
 	$scope.tabClick = function(whichTab) {
 		console.log(whichTab+' Tag clicked');
-		//$scope.show = 
-		
+		$scope.currentTab = whichTab;
 	}
 
 	$scope.changeGameName = function(data) {
@@ -100,9 +99,9 @@ angular.module('app.controllers', [])
 				if(!_.isArray($scope.userGameCollection)) {
 					$scope.userGameCollection = [$scope.userGameCollection];
 				} 
+				console.log($scope.userGameCollection[0].thumbnail);
 
-			//$http.post('/users/'+userId+'/collections',
-			$http.post('http://tiny-pizza-server.herokuapp.com/collections/TJJ-hackathon/',
+			$http.post('/users/'+userId+'/collections',
 			{
 				board_name: $scope.userGameCollection[0].name.toString() || $scope.userGameCollection[0].name._text,
 				min_player: $scope.userGameCollection[0].minplayers,
