@@ -15,6 +15,6 @@
 </div>
 <input type="submit" value="Tell me what to play!" class="letsgobutton" ng-click="quickPlay(numOfPlayers, timeAvailable)"/>
 </div>
-<div ng-repeat="game in storedUserGameList">
+<div ng-repeat="game in quickPlayGameList">
 	<p> <img src= "{{ game.image }}"> </p>
 </div>
