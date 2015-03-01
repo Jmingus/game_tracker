@@ -1,6 +1,6 @@
 
 
-<h1>[REDACTED]</h1>
+<h1>Game-A-Lot</h1>
 
 
 
@@ -13,7 +13,7 @@
 > **Jacob Mingus**- Lead Ruby on Rails Developer
 
 
-## What is [REDACTED]? ##
+## What is Game-A-Lot? ##
 **This app lets you.**
  - Create board game collections
  - Create a board game wishlist
@@ -25,5 +25,5 @@
 	
 
  - [Trello Board](https://trello.com/b/yJ2ebWEQ/iron-hackathon)
- - [Heroku Link](https://game-tracker1337.herokuapp.com/)
+ - [Heroku Link](game-tracker1337.herokuapp.com/)
  - Wire Frame Link Goes Here
