@@ -39,7 +39,7 @@ class CollectionsController < ApplicationController
   end
 
   def collection_params
-    params.require(:collection).permit(:board_image,
+    params.require(:collection).permit(:image,
                                        :favorite,
                                        :board_name,
                                        :min_player,
@@ -47,6 +47,7 @@ class CollectionsController < ApplicationController
                                        :playtime,
                                        :published,
                                        :up_for_trade,
-                                       :comment)
+                                       :description
+    )
   end
 end
