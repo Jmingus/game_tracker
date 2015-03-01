@@ -11,46 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150228195706) do
+ActiveRecord::Schema.define(version: 20150301163017) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "collections", force: :cascade do |t|
     t.boolean  "favorite",                 default: false
-    t.string   "board_name",               default: "No Board Name", null: false
-    t.string   "min_player",               default: "1",             null: false
-    t.string   "max_player",               default: "4",             null: false
-    t.string   "playtime",                 default: "60",            null: false
-    t.string   "published",                default: "1978",          null: false
+    t.string   "board_name",               default: "No Board Name",      null: false
+    t.string   "min_player",               default: "1",                  null: false
+    t.string   "max_player",               default: "4",                  null: false
+    t.string   "playtime",                 default: "60",                 null: false
+    t.string   "published",                default: "1978",               null: false
     t.boolean  "up_for_trade",             default: false
     t.string   "comment"
     t.integer  "user_id"
-    t.datetime "created_at",                                         null: false
-    t.datetime "updated_at",                                         null: false
+    t.datetime "created_at",                                              null: false
+    t.datetime "updated_at",                                              null: false
     t.string   "board_image_file_name"
     t.string   "board_image_content_type"
     t.integer  "board_image_file_size"
     t.datetime "board_image_updated_at"
+    t.string   "description",              default: "`Tis a Board Game!"
   end
 
   add_index "collections", ["user_id"], name: "index_collections_on_user_id", using: :btree
-
-  create_table "testers", force: :cascade do |t|
-    t.boolean  "favorite"
-    t.string   "board_name"
-    t.integer  "min_player"
-    t.integer  "max_player"
-    t.integer  "playtime"
-    t.date     "published"
-    t.boolean  "up_for_trade"
-    t.string   "comment"
-    t.integer  "user_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
-
-  add_index "testers", ["user_id"], name: "index_testers_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "user_name",                           null: false
@@ -94,6 +79,5 @@ ActiveRecord::Schema.define(version: 20150228195706) do
   add_index "wants", ["user_id"], name: "index_wants_on_user_id", using: :btree
 
   add_foreign_key "collections", "users"
-  add_foreign_key "testers", "users"
   add_foreign_key "wants", "users"
 end
