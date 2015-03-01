@@ -5,7 +5,6 @@ angular.module('app.controllers', [])
 	var gameCollection = [];
 	$scope.displayList = [];
 	$scope.searchParam = '';
-	$scope.checkBox = false;
 	$scope.userGameCollection = [];
 	$scope.formmatedGameCollection = [];
 	$scope.quickPlayGameList = [];
@@ -13,6 +12,8 @@ angular.module('app.controllers', [])
 	var sort = true;
 	$scope.showTable = false;
 	$scope.errorMsg = '';
+	$scope.playerErrorMsg = '';
+	$scope.timeErrorMsg = '';
 
 	//$http.get('/users/'+userId+'/collection')
 	$http.get('/users/'+userId+'/collections/')
@@ -41,8 +42,6 @@ angular.module('app.controllers', [])
 		if(searchParam.length < 2) {
 			$scope.errorMsg = "Search requires 2 or more characters";
 		}
-
-		$scope.showTable = true;
 
 		$http.get('http://www.boardgamegeek.com/xmlapi/search?search='+searchParam)
 			.success(function(response) {
@@ -86,15 +85,15 @@ angular.module('app.controllers', [])
 				} 
 				console.log($scope.userGameCollection);
 
-			$http.post('/users/'+userId+'/collections',
-			//$http.post('http://tiny-pizza-server.herokuapp.com/collections/TJJ-hackathon/',
+			//$http.post('/users/'+userId+'/collections',
+			$http.post('http://tiny-pizza-server.herokuapp.com/collections/TJJ-hackathon/',
 			{
 				board_name: $scope.userGameCollection[0].name.toString() || $scope.userGameCollection[0].name._text,
 				min_player: $scope.userGameCollection[0].minplayers,
 				max_player: $scope.userGameCollection[0].maxplayers,
 				playtime: $scope.userGameCollection[0].playingtime,
 				published: $scope.userGameCollection[0].yearpublished,
-				board_image: $scope.userGameCollection[0].image
+				board_image: $scope.userGameCollection[0].thumbnail
 			}
 		);
 			})
@@ -104,11 +103,14 @@ angular.module('app.controllers', [])
 	};
 
 	$scope.quickPlay = function(numOfPlayers, timeAvailable) {
+		$scope.quickPlayGameList = [];
 		if(angular.isUndefined(numOfPlayers) || numOfPlayers === null) {
+			$scope.playerErrorMsg = 'Please enter an amount of players';
 			throw 'Number of player is undefined or null';
 		}
 		if(angular.isUndefined(timeAvailable) || timeAvailable === null) {
 			throw 'Time available is undefined or null';
+			$scope.timeErrorMsg = 'Please enter a time constraint';
 		}
 
 		for(var i=0; i < $scope.storedUserGameList.length; i++) {
@@ -116,7 +118,7 @@ angular.module('app.controllers', [])
 				$scope.storedUserGameList[i].max_player < numOfPlayers) {
 				console.log('Game'+[i]+' does not meet player requirements');	
 			}
-			else if($scope.storedUserGameList[i].playtime < timeAvailable) {
+			else if($scope.storedUserGameList[i].playtime > timeAvailable) {
 				console.log('Game'+[i]+' does not meet time requirements');	
 			}
 			else {
