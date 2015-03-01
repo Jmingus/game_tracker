@@ -15,10 +15,10 @@
 <div class="gameInfoBox">
 	<p ng-bind="gameDesc" ng-show="currentTab === 'description'"> Desc Test </p>
 	<p ng-show="currentTab === 'information'"> 
-		<p> Minimum number of players: {{ gameMin }} </p> 
-		<p> Maximum number of players: {{ gameMax }} </p>
-		<p> How long it takes to play: {{ gamePlay }} minutes </p>
-		<p> Year Published: {{ gameYear }} </p> </p>
+		<p ng-show="currentTab === 'information'"> Minimum number of players: {{ gameMin }} </p> 
+		<p ng-show="currentTab === 'information'"> Maximum number of players: {{ gameMax }} </p>
+		<p ng-show="currentTab === 'information'"> How long it takes to play: {{ gamePlay }} minutes </p>
+		<p ng-show="currentTab === 'information'"> Year Published: {{ gameYear }} </p> </p>
 	<p ng-show="currentTab === 'media'"> Media Test </p>
 	<p ng-show="currentTab === 'reviews'"> Review Test </p>
 </div>

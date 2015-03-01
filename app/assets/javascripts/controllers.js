@@ -31,7 +31,6 @@ angular.module('app.controllers', [])
 	getStoredUserCollection();
 
 	$scope.tabClick = function(whichTab) {
-		console.log(whichTab+' Tag clicked');
 		$scope.currentTab = whichTab;
 	}
 
@@ -78,6 +77,8 @@ angular.module('app.controllers', [])
 				if(gameCollection.length === 0) {
 					$scope.errorMsg = "No game found. Sorry!";
 					$scope.showTable = false;
+				} else {
+					$scope.errorMsg = '';
 				}
 				$scope.formmatedGameCollection = [];
 				for(var i=0; i<gameCollection.length; i++) {
