@@ -84,23 +84,44 @@ tbody {
 
 
 /* BOARDGAME.HTML STLYING! */
+.wrapper {
+    font-size: 0px;
+    text-align: center;
+    }
+.gameInfoSelector {
+    font-size: 16px;
+    vertical-align: top;
+    margin: 0 auto;
+    display: inline-block;
+    border-top-left-radius:5px;
+    border-top: 2px solid #423446;
+
+
+}
 .tab {
-    width: 20%;
     height: 8%;
     text-align:center;
     border: 2px solid #423446;
     border-top: none;
-    border-left: none;
-    border-radius:5px;
-    padding-top:.7em;
-    background-color: #B9B09F;
-}
+    border-right: none;
+    border-top-left-radius:5px;
+    border-bottom-left-radius: 5px;
+    padding: .5em 0;
+    background-color: #E2A69A;
+    margin: 0 auto;
+    padding: .5em 1em;
+    }
 .gameInfoBox {
     width: 50%;
     height: 30em;
     border: 2px solid #423446;
+    border-radius: 5px;
+    border-top-left-radius: 0px;
     margin: 0 auto;
     overflow: hidden;
+    display: inline-block;
+    font-size: 16px;
+    text-align:center;
 }
 
 
@@ -126,7 +147,7 @@ tbody {
  }
  .bubble {
  position: relative;
- width: 35%;
+ width: 40%;
  height: 3em;
  padding: 0px;
  background: #E2A69A;
@@ -138,7 +159,7 @@ tbody {
  text-align: center;
  input{
      background-color: #DDE8E0;
-     border: none;
+     border: 1px solid #423446;
      font-size: 12pt;
      color: #423446;
      width: 3em;
@@ -179,7 +200,7 @@ tbody {
 
  .bubble2 {
 position: relative;
-width: 35%;
+width: 40%;
 height: 3em;
 padding: 0px;
 background: #E2A69A;
@@ -191,7 +212,7 @@ margin: 2em auto;
 text-align: center;
 input{
     background-color: #DDE8E0;
-    border: none;
+    border: 1px solid #423446;
     font-size: 12pt;
     color: #423446;
     width: 3em;
@@ -231,12 +252,13 @@ left: 85%;
 .letsgobutton {
     padding:5px 15px;
     background:#E2A69A;
-    border:0 none;
+    border: 1px solid #423446;
     cursor:pointer;
     -webkit-border-radius: 5px;
     border-radius: 5px;
     font-size: 1em;
-    color: 423446;
+    font-weight:800;
+    color: #423446;
 }
 
  .quickplaylist {
