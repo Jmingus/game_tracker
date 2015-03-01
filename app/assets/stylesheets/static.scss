@@ -129,7 +129,7 @@ tbody {
  width: 35%;
  height: 3em;
  padding: 0px;
- background: #CF6B57;
+ background: #E2A69A;
  -webkit-border-radius: 13px;
  -moz-border-radius: 13px;
  border-radius: 13px;
@@ -154,7 +154,7 @@ tbody {
  position: absolute;
  border-style: solid;
  border-width: 15px 15px 0;
- border-color: #CF6B57 transparent;
+ border-color: #E2A69A transparent;
  display: block;
  width: 0;
  z-index: 1;
@@ -182,7 +182,7 @@ position: relative;
 width: 35%;
 height: 3em;
 padding: 0px;
-background: #CF6B57;
+background: #E2A69A;
 -webkit-border-radius: 13px;
 -moz-border-radius: 13px;
 border-radius: 13px;
@@ -206,7 +206,7 @@ content: '';
 position: absolute;
 border-style: solid;
 border-width: 0 15px 15px;
-border-color: #CF6B57 transparent;
+border-color: #E2A69A transparent;
 display: block;
 width: 0;
 z-index: 1;
@@ -230,11 +230,13 @@ left: 85%;
 }
 .letsgobutton {
     padding:5px 15px;
-    background:rgba(207, 107, 87, 0.3);
+    background:#E2A69A;
     border:0 none;
     cursor:pointer;
     -webkit-border-radius: 5px;
     border-radius: 5px;
+    font-size: 1em;
+    color: 423446;
 }
 
  .quickplaylist {
