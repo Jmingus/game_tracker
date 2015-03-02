@@ -17,7 +17,7 @@ angular.module('app.controllers', [])
 	$scope.currentTab ='description';
 	$scope.primaryName = 'test';
 
-	function getStoredUserCollection() {
+	$scope.getStoredUserCollection = function() {
 		$http.get('/users/'+userId+'/collections/')
 			.success(function(response) {
 				$scope.storedUserGameList = response;
@@ -27,7 +27,7 @@ angular.module('app.controllers', [])
 			});
 	};
 
-	getStoredUserCollection();
+	$scope.getStoredUserCollection();
 
 	$scope.tabClick = function(whichTab) {
 		$scope.currentTab = whichTab;
@@ -126,7 +126,6 @@ angular.module('app.controllers', [])
 			.error(function(err) {
 				console.log(err);
 			});
-			getStoredUserCollection();
 	};
 
 	$scope.quickPlay = function(numOfPlayers, timeAvailable) {
@@ -158,8 +157,8 @@ angular.module('app.controllers', [])
 .controller('boardGameCtrl', function() {
 
 })
-.controller('homeCtrl', function() {
-
+.controller('homeCtrl', function($scope) {
+	$scope.getStoredUserCollection();
 })
 .controller('quickPlayCtrl', function() {
 
