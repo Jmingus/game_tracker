@@ -143,6 +143,10 @@ tbody {
     display: inline-block;
     border-top-left-radius:5px;
     border-top: 2px solid #423446;
+    a{
+        text-decoration:none;
+        color: #423446;
+    }
 }
 .tab {
     height: 8%;
@@ -327,6 +331,9 @@ left: 85%;
     div {
         display: inline-block;
         text-align: center;
+        a{
+            text-decoration:none;
+        }
     }
 }
 
