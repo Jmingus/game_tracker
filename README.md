@@ -25,5 +25,5 @@
 	
 
  - [Trello Board](https://trello.com/b/yJ2ebWEQ/iron-hackathon)
- - [Heroku Link](game-tracker1337.herokuapp.com/)
+ - [Heroku Link](https://game-tracker1337.herokuapp.com)
  - Wire Frame Link Goes Here
