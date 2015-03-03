@@ -20,6 +20,7 @@ angular.module('app.controllers', ['ngSanitize'])
 	$scope.getStoredUserCollection = function() {
 		$http.get('/users/'+userId+'/collections/')
 			.success(function(response) {
+				console.log(response);
 				$scope.storedUserGameList = response;
 			})
 			.error(function(err) {
@@ -28,7 +29,6 @@ angular.module('app.controllers', ['ngSanitize'])
 	};
 
 	$scope.getStoredUserCollection();
-
 
 	$scope.tabClick = function(whichTab) {
 		$scope.currentTab = whichTab;
@@ -49,22 +49,9 @@ angular.module('app.controllers', ['ngSanitize'])
 			console.log($scope.storedUserGameList[i].board_name);
 			if(name == $scope.storedUserGameList[i].board_name) {
 				console.log($scope.storedUserGameList[i].board_name+' matched and spliced out');
+				$http.delete('/users/'+userId+'/collections/'+$scope.storedUserGameList[i].id);
 				$scope.storedUserGameList.splice(i,1);
 			}
-		}
-
-		for(var x=0; x < $scope.storedUserGameList.length; x++) {
-			$http.post('/users/'+userId+'/collections',
-			{
-				board_name: $scope.storedUserGameList[x].board_name,
-				min_player: $scope.storedUserGameList[x].minplayers,
-				max_player: $scope.storedUserGameList[x].maxplayers,
-				playtime: $scope.storedUserGameList[x].playingtime,
-				published: $scope.storedUserGameList[x].yearpublished,
-				image: $scope.storedUserGameList[x].thumbnail,
-				description: $scope.storedUserGameList[x].description
-			}
-			);
 		}
 	};
 
