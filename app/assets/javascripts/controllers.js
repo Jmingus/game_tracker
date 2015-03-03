@@ -20,7 +20,6 @@ angular.module('app.controllers', ['ngSanitize'])
 	$scope.getStoredUserCollection = function() {
 		$http.get('/users/'+userId+'/collections/')
 			.success(function(response) {
-				console.log(response);
 				$scope.storedUserGameList = response;
 			})
 			.error(function(err) {
@@ -53,6 +52,7 @@ angular.module('app.controllers', ['ngSanitize'])
 				$scope.storedUserGameList.splice(i,1);
 			}
 		}
+		$route.current.templateUrl = home.html;
 	};
 
 	$scope.nameClick = function() {
@@ -92,7 +92,6 @@ angular.module('app.controllers', ['ngSanitize'])
 				} else {
 					$scope.errorMsg = '';
 				}
-				console.log(gameCollection);
 				$scope.formmatedGameCollection = [];
 				for(var i=0; i<gameCollection.length; i++) {
 					$scope.formmatedGameCollection.push({
@@ -123,7 +122,6 @@ angular.module('app.controllers', ['ngSanitize'])
 				if(!_.isArray($scope.userGameCollection)) {
 					$scope.userGameCollection = [$scope.userGameCollection];
 				} 
-				console.log($scope.userGameCollection);
 			$http.post('/users/'+userId+'/collections',
 			{
 				board_name: name,
