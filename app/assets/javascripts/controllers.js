@@ -1,4 +1,4 @@
-angular.module('app.controllers', [])
+angular.module('app.controllers', ['ngSanitize'])
 .controller('appCtrl', function($scope, $http) {
 
 	var parser = new X2JS();
@@ -20,6 +20,7 @@ angular.module('app.controllers', [])
 	$scope.getStoredUserCollection = function() {
 		$http.get('/users/'+userId+'/collections/')
 			.success(function(response) {
+				console.log(response);
 				$scope.storedUserGameList = response;
 			})
 			.error(function(err) {
@@ -31,17 +32,28 @@ angular.module('app.controllers', [])
 
 	$scope.tabClick = function(whichTab) {
 		$scope.currentTab = whichTab;
-	}
+	};
 
 	$scope.changeGameName = function(name, desc, min, max, play, year) {
-		$scope.primaryName = name.split(',');
-		$scope.primaryName = $scope.primaryName[0];
+		$scope.primaryName = name;
 		$scope.gameDesc = desc;
 		$scope.gameMin = min;
 		$scope.gameMax = max;
 		$scope.gamePlay = play;
 		$scope.gameYear = year;
-	}
+	};
+
+	$scope.removeGameFromVault = function(name) {
+		console.log(name);
+		for(var i=0; i < $scope.storedUserGameList.length; i++) {
+			console.log($scope.storedUserGameList[i].board_name);
+			if(name == $scope.storedUserGameList[i].board_name) {
+				console.log($scope.storedUserGameList[i].board_name+' matched and spliced out');
+				$http.delete('/users/'+userId+'/collections/'+$scope.storedUserGameList[i].id);
+				$scope.storedUserGameList.splice(i,1);
+			}
+		}
+	};
 
 	$scope.nameClick = function() {
 		console.log('Name sort clicked');
@@ -80,6 +92,7 @@ angular.module('app.controllers', [])
 				} else {
 					$scope.errorMsg = '';
 				}
+				console.log(gameCollection);
 				$scope.formmatedGameCollection = [];
 				for(var i=0; i<gameCollection.length; i++) {
 					$scope.formmatedGameCollection.push({
@@ -98,7 +111,7 @@ angular.module('app.controllers', [])
 			});
 		};
 
-	$scope.addItemToCollection = function(gameId) {
+	$scope.addItemToCollection = function(gameId, name) {
 		//$http.get('http://www.boardgamegeek.com/xmlapi/boardgame/'+gameId)
 		$http.get('http://tiyfe-proxy.herokuapp.com/http%3A%2F%2Fwww.boardgamegeek.com%2Fxmlapi%2Fboardgame%2F'+gameId)
 			.success(function(response) {
@@ -110,10 +123,10 @@ angular.module('app.controllers', [])
 				if(!_.isArray($scope.userGameCollection)) {
 					$scope.userGameCollection = [$scope.userGameCollection];
 				} 
-			console.log($scope.userGameCollection[0].thumbnail);
+				console.log($scope.userGameCollection);
 			$http.post('/users/'+userId+'/collections',
 			{
-				board_name: $scope.userGameCollection[0].name.toString() || $scope.userGameCollection[0].name._text,
+				board_name: name,
 				min_player: $scope.userGameCollection[0].minplayers,
 				max_player: $scope.userGameCollection[0].maxplayers,
 				playtime: $scope.userGameCollection[0].playingtime,
@@ -132,23 +145,18 @@ angular.module('app.controllers', [])
 		$scope.quickPlayGameList = [];
 		if(angular.isUndefined(numOfPlayers) || numOfPlayers === null) {
 			$scope.playerErrorMsg = 'Please enter an amount of players';
-			throw 'Number of player is undefined or null';
 		}
 		if(angular.isUndefined(timeAvailable) || timeAvailable === null) {
-			throw 'Time available is undefined or null';
 			$scope.timeErrorMsg = 'Please enter a time constraint';
 		}
 
 		for(var i=0; i < $scope.storedUserGameList.length; i++) {
 			if($scope.storedUserGameList[i].min_player > numOfPlayers || 
 				$scope.storedUserGameList[i].max_player < numOfPlayers) {
-				console.log('Game'+[i]+' does not meet player requirements');	
 			}
 			else if($scope.storedUserGameList[i].playtime > timeAvailable) {
-				console.log('Game'+[i]+' does not meet time requirements');	
 			}
 			else {
-				console.log('Game'+i+'was added');
 				$scope.quickPlayGameList.push($scope.storedUserGameList[i]);
 			}
 		}
