@@ -13,7 +13,7 @@
 </nav>
 
 <div class="gameInfoBox">
-	<p ng-bind="gameDesc" ng-show="currentTab === 'description'"> Desc Test </p>
+	<p ng-bind-html="gameDesc" ng-show="currentTab === 'description'"> Desc Test </p>
 	<p ng-show="currentTab === 'information'"> 
 		<p ng-show="currentTab === 'information'"> Minimum number of players: {{ gameMin }} </p> 
 		<p ng-show="currentTab === 'information'"> Maximum number of players: {{ gameMax }} </p>

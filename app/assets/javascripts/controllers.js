@@ -1,4 +1,4 @@
-angular.module('app.controllers', [])
+angular.module('app.controllers', ['ngSanitize'])
 .controller('appCtrl', function($scope, $http) {
 
 	var parser = new X2JS();
@@ -44,28 +44,28 @@ angular.module('app.controllers', [])
 	};
 
 	$scope.removeGameFromVault = function(name) {
-		console.log($scope.storedUserGameList[0].board_name);
 		console.log(name);
 		for(var i=0; i < $scope.storedUserGameList.length; i++) {
 			console.log($scope.storedUserGameList[i].board_name);
 			if(name == $scope.storedUserGameList[i].board_name) {
-				console.log('Game matched and spliced out');
+				console.log($scope.storedUserGameList[i].board_name+' matched and spliced out');
 				$scope.storedUserGameList.splice(i,1);
 			}
 		}
 
-		$http.post('/users/'+userId+'/collections',
+		for(var x=0; x < $scope.storedUserGameList.length; x++) {
+			$http.post('/users/'+userId+'/collections',
 			{
-				board_name: name,
-				min_player: $scope.userGameCollection[0].minplayers,
-				max_player: $scope.userGameCollection[0].maxplayers,
-				playtime: $scope.userGameCollection[0].playingtime,
-				published: $scope.userGameCollection[0].yearpublished,
-				image: $scope.userGameCollection[0].thumbnail,
-				description: $scope.userGameCollection[0].description
+				board_name: $scope.storedUserGameList[x].board_name,
+				min_player: $scope.storedUserGameList[x].minplayers,
+				max_player: $scope.storedUserGameList[x].maxplayers,
+				playtime: $scope.storedUserGameList[x].playingtime,
+				published: $scope.storedUserGameList[x].yearpublished,
+				image: $scope.storedUserGameList[x].thumbnail,
+				description: $scope.storedUserGameList[x].description
 			}
-
-		console.log($scope.storedUserGameList);
+			);
+		}
 	};
 
 	$scope.nameClick = function() {
