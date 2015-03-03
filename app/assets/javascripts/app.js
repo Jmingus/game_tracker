@@ -2,7 +2,7 @@ angular.module('app', ['app.controllers', 'ui.router'])
 .config(function($stateProvider, $urlRouterProvider, $locationProvider) {
 	$stateProvider
 	.state ('home' , {
-		url: '/',
+		url: '/home',
 		templateUrl: 'templates/home.html',
 		controller: 'homeCtrl'
 	})
@@ -31,5 +31,5 @@ angular.module('app', ['app.controllers', 'ui.router'])
 		templateUrl: 'templates/addGame.html',
 		controller: 'homeCtrl'
 	});
-	$urlRouterProvider.otherwise('/');
+	$urlRouterProvider.otherwise('/home');
 });
