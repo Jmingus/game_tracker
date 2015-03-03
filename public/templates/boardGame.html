@@ -8,18 +8,19 @@
       </div>
       <div ng-click="tabClick('media')" class="tab"> <a href='#'> Media </a> 
       </div>
-      <div ng-click="tabClick('reviews')" class="tab"> <a href='#'> Reviews </a>
+      <div ng-click="tabClick('options')" class="tab"> <a href='#'> Options </a>
       </div>
 </nav>
 
 <div class="gameInfoBox">
-	<p ng-bind="gameDesc" ng-show="currentTab === 'description'"> Desc Test </p>
+	<p ng-bind-html="gameDesc" ng-show="currentTab === 'description'"> Desc Test </p>
 	<p ng-show="currentTab === 'information'"> 
 		<p ng-show="currentTab === 'information'"> Minimum number of players: {{ gameMin }} </p> 
 		<p ng-show="currentTab === 'information'"> Maximum number of players: {{ gameMax }} </p>
 		<p ng-show="currentTab === 'information'"> How long it takes to play: {{ gamePlay }} minutes </p>
 		<p ng-show="currentTab === 'information'"> Year Published: {{ gameYear }} </p> </p>
 	<p ng-show="currentTab === 'media'"> Media Test </p>
-	<p ng-show="currentTab === 'reviews'"> Review Test </p>
+	<p ng-show="currentTab === 'options'"> Click the trashcan icon to remove this game from your Vault </br> 
+	<a href="#"> <i ng-click="removeGameFromVault(primaryName)" class="fa fa-trash"></i> </a> </p>
 </div>
 </div>

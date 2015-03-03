@@ -18,6 +18,6 @@
 		<tr class="selected" ng-repeat="game in displayList | limitTo:50">
 			<td> {{ game.name.toString() || game.name._text }} </td>
 			<td class="year-published"> {{ game.yearpublished }}</td>
-			<td> <i ng-click="addItemToCollection(game.gameId)" class="fa fa-plus"></i> </td>
+			<td> <i ng-click="addItemToCollection(game.gameId, game.name)" class="fa fa-plus"></i> </td>
 	</tbody>
 </table>
