@@ -149,6 +149,7 @@ tbody {
     }
 }
 .tab {
+    cursor: pointer;
     height: 8%;
     text-align:center;
     border: 2px solid #423446;
@@ -367,4 +368,15 @@ left: 85%;
     padding: .2em .2em;
     margin-bottom: 1em;
     font-family: Metamorphous;
+}
+
+.vault-trash {
+    position: fixed;
+    bottom:10px;
+    right:20px;
+}
+
+.vault-trash:hover {
+    color:red;
+    font-size:3.5em;
 }

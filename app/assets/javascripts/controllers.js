@@ -167,6 +167,7 @@ angular.module('app.controllers', ['ngSanitize'])
 })
 .controller('homeCtrl', function($scope) {
 	$scope.getStoredUserCollection();
+
 })
 .controller('quickPlayCtrl', function() {
 
