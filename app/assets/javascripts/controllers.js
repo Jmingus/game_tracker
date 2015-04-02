@@ -43,11 +43,8 @@ angular.module('app.controllers', ['ngSanitize'])
 	};
 
 	$scope.removeGameFromVault = function(name) {
-		console.log(name);
 		for(var i=0; i < $scope.storedUserGameList.length; i++) {
-			console.log($scope.storedUserGameList[i].board_name);
 			if(name == $scope.storedUserGameList[i].board_name) {
-				console.log($scope.storedUserGameList[i].board_name+' matched and spliced out');
 				$http.delete('/users/'+userId+'/collections/'+$scope.storedUserGameList[i].id);
 				$scope.storedUserGameList.splice(i,1);
 			}
@@ -56,7 +53,6 @@ angular.module('app.controllers', ['ngSanitize'])
 	};
 
 	$scope.nameClick = function() {
-		console.log('Name sort clicked');
 		if(sort) {
 			$scope.displayList.reverse();
 			sort = false;
