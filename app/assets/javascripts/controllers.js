@@ -4,6 +4,7 @@ angular.module('app.controllers', ['ngSanitize'])
 	var parser = new X2JS();
 	var gameCollection = [];
 	var sort = true;
+	$scope.showSpinner = false;
 	$scope.displayList = [];
 	$scope.searchParam = '';
 	$scope.userGameCollection = [];
@@ -66,13 +67,17 @@ angular.module('app.controllers', ['ngSanitize'])
 	};
 
 	$scope.searchSubmit=function(searchParam){
+		$scope.showSpinner = true;
+		$scope.errorMsg = '';
 		if(searchParam.length < 2) {
+			$scope.showSpinner = false;
 			$scope.errorMsg = "Search requires 2 or more characters";
 		}
 
 		//$http.get('http://www.boardgamegeek.com/xmlapi/search?search='+searchParam)
 		$http.get('http://tiyfe-proxy.herokuapp.com/http%3A%2F%2Fwww.boardgamegeek.com%2Fxmlapi%2Fsearch%3Fsearch%3D%27'+searchParam)
 			.success(function(response) {
+				$scope.showSpinner = false;
 				$scope.showTable = true;
 				gameCollection = parser.xml_str2json(response);
 				gameCollection = gameCollection.boardgames.boardgame;
@@ -110,6 +115,7 @@ angular.module('app.controllers', ['ngSanitize'])
 		//$http.get('http://www.boardgamegeek.com/xmlapi/boardgame/'+gameId)
 		$http.get('http://tiyfe-proxy.herokuapp.com/http%3A%2F%2Fwww.boardgamegeek.com%2Fxmlapi%2Fboardgame%2F'+gameId)
 			.success(function(response) {
+
 				$scope.userGameCollection = parser.xml_str2json(response);
 				$scope.userGameCollection = $scope.userGameCollection.boardgames.boardgame;
 				if(!$scope.userGameCollection) {
@@ -161,6 +167,7 @@ angular.module('app.controllers', ['ngSanitize'])
 })
 .controller('homeCtrl', function($scope) {
 	$scope.getStoredUserCollection();
+
 })
 .controller('quickPlayCtrl', function() {
 

@@ -3,8 +3,9 @@
     <!-- <input ng-model="searchParam" type="search" name="s" results=5 placeholder="enter game"> -->
     <div class="box">
           <div class="container-1">
-             <input ng-model="searchParam" type="search" id="search" results=10 placeholder="Search for a game..." /><br>
-             <h4 ng-bind="errorMsg" class="errorMsg" Search requires two or more characters.</h4>
+             <input ng-model="searchParam" type="search" id="search" results=10 placeholder="Search for a game..." /> <br> 
+             <h4 ng-bind="errorMsg" class="errorMsg"> Search requires two or more characters.</h4>
+             <i ng-show="showSpinner" class="fa fa-spinner fa-spin fa-3x"></i>
           </div>
     </div>
 </form>
