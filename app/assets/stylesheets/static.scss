@@ -2,7 +2,7 @@
  font-size: 16px !important;
  /* This ribbon is based on a 16px font side and a 24px vertical rhythm. I've used em's to position each element for scalability. If you want to use a different font size you may have to play with the position of the ribbon elements */
 
- width: 50%;
+ width: 60%;
 
  position: relative;
  background: #CF6B57;
@@ -62,6 +62,9 @@ html {
         padding-left: 1em;
         padding-right: 1em;
     }
+    a:hover {
+        color:black;
+    }
 }
 .footer {
     position: absolute;
@@ -105,7 +108,7 @@ form {
 
 table {
     margin: 0 auto;
-    width: 50%;
+    width: 75%;
 }
 thead {
     color:#CF6B57;
@@ -120,14 +123,27 @@ tbody {
         text-align:center;
     }
 }
-.selected:hover {
+tr {
+    font-size:1.4em;
+}
+td {
+    padding:0.4em 0;
+}
+.selected:nth-child(odd) {
     background-color: rgba(207, 107, 87, 0.3);
+}
+.selected:hover {
+    background-color:#CF6B57;
+    color:white;
 }
 .year-published {
     text-align:center;
 }
 .add-game-icon {
     text-align:center;
+}
+i:hover {
+    color:red;
 }
 
 
